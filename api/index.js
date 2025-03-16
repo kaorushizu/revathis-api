@@ -12,3 +12,5 @@ app.get('/api/greet', (req, res) => {
 
 // Vercel の API 用のエクスポート
 module.exports = app;
+
+// あげわｇ

@@ -58,7 +58,6 @@ module.exports = async (req, res) => {
             const $item = $(this).closest(".add_item");
 
             const copyObj = {
-                参照元: "ヤフオク",
                 オークションID: $item.attr("id"),
                 商品名: $item.find(".addItemName").text().trim(),
                 落札金額: $item.find(".item_price").text().replace("円", "").replace(",", "").trim(),

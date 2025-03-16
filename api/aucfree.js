@@ -11,8 +11,13 @@ module.exports = async (req, res) => {
     const url = `https://aucfree.com/search?from=2015-06&o=t2&q=${encodeURIComponent(keyword)}&to=2030-01`;
 
     // HTML を取得
-    const response = await axios.get(url);
-    console.log(response.data); // ここでログ出力（デバッグ用）
+    const response = await axios.get(url, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+      }
+    });
+
+    console.log("Fetched HTML:", response.data.substring(0, 500)); // 500文字だけ出力（デバッグ用）
 
     const $ = cheerio.load(response.data);
     const results = [];
@@ -35,7 +40,7 @@ module.exports = async (req, res) => {
       });
     });
 
-    console.log("Parsed Results:", results); // パース結果をログ出力（デバッグ用）
+    console.log("Parsed Results:", results); // デバッグ用ログ
 
     res.json(results);
   } catch (error) {

@@ -62,7 +62,7 @@ module.exports = async (req, res) => {
         });
     });
 
-    console.log("Parsed Results:", output); // デバッグ用
+    console.log("Parsed Results:", output); // デバッグ用a
 
     res.json(output);
   } catch (error) {

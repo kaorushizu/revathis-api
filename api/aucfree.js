@@ -65,7 +65,7 @@ module.exports = async (req, res) => {
                 // カテゴリID: $item.find(".add_catId").text().trim(),
                 画像URL: $item.find(".results_bid-image a img").attr("data-src"),
                 入札数: $item.find(".results-bid").text().replace(/\r?\n/g, '').replace("件", "").trim(),
-                終了日: $item.find(".results-limit").text().replace(/\r?\n/g, '').trim(),
+                終了日時: $item.find(".results-limit").text().replace(/\r?\n/g, '').trim(),
                 // 状態: removeLeadingNumberAndDot($item.find(".add_conditionTag").text().trim()),
                 // 送料: $item.find(".add_shipping").text().trim()
             };

@@ -3,14 +3,20 @@ const cheerio = require("cheerio");
 
 module.exports = async (req, res) => {
 
-    console.log("test")
+
     try {
         const keyword = req.query.keyword;
-        if (!keyword) {
-            return res.status(400).json({ error: "キーワードを指定してください" });
-        }
+        // if (!keyword) {
+        //     return res.status(400).json({ error: "キーワードを指定してください" });
+        // }
+        const page = Number(req.query.page ?? 1);
+        const negative_keyword = req.query.negative_keyword;
+        const status = req.query.status;
+        const seller = req.query.seller;
+        const min = req.query.min;
+        const max = req.query.max;
 
-        const url = `https://aucfree.com/search?from=2015-06&o=t2&q=${encodeURIComponent(keyword)}&to=2030-01`;
+        const url = `https://aucfree.com/search?from=2015-06&o=t2&q=${encodeURIComponent(keyword)}&to=2030-01&p=${page}&nq=${negative_keyword}&itemstatus=${status}&seller=${seller}&l=${min}&u=${max}`;
 
         // HTML を取得
         const response = await axios.get(url, {
@@ -22,8 +28,11 @@ module.exports = async (req, res) => {
         console.log("Fetched HTML:", response.data); // 500文字だけ出力（デバッグ用）
 
         const $ = cheerio.load(response.data);
-        const results = [];
+        
+        //合計数取得
+        const pageTotal = Number($(".page_nav:nth-of-type(1) p span:nth-of-type(3)").text().replace(",",""));        
 
+        let items = [];
 
         const $items = $(".results_bid.hover_on");
 
@@ -41,7 +50,6 @@ module.exports = async (req, res) => {
         }
 
 
-
         $items.each(function () {
             // オークションIDをTRにセットしておく（後から何かと使える為）
             const href = $(this).find(".results_bid-image a").attr("href");
@@ -57,31 +65,34 @@ module.exports = async (req, res) => {
             // 対象商品の情報を取得
             const $item = $(this).closest(".add_item");
 
-            const copyObj = {
+            const itemObj = {
                 オークションID: $item.attr("id"),
                 商品名: $item.find(".addItemName").text().trim(),
-                落札金額: $item.find(".item_price").text().replace("円", "").replace(",", "").trim(),
+                落札金額: Number($item.find(".item_price").text().replace("円", "").replace(",", "").trim() ),
                 // カテゴリID: $item.find(".add_catId").text().trim(),
                 画像URL: $item.find(".results_bid-image a img").attr("data-src"),
-                入札数: $item.find(".results-bid").text().replace(/\r?\n/g, '').replace("件", "").trim(),
+                入札数: Number( $item.find(".results-bid").text().replace(/\r?\n/g, '').replace("件", "").trim() ),
                 終了日: $item.find(".results-limit").text().replace(/\r?\n/g, '').trim(),
                 // 状態: removeLeadingNumberAndDot($item.find(".add_conditionTag").text().trim()),
                 // 送料: $item.find(".add_shipping").text().trim()
             };
             //商品画像はオークファン形式へ切替
-            copyObj.画像URL = `https://auctions.afimg.jp/item_data/thumbnail/${convertDateToNumber(copyObj.終了日)}/yahoo/c/${copyObj.オークションID}.jpg`
+            itemObj.画像URL = `https://auctions.afimg.jp/item_data/thumbnail/${convertDateToNumber(itemObj.終了日)}/yahoo/c/${itemObj.オークションID}.jpg`
 
-            results.push(copyObj);
+            items.push(itemObj);
 
         });
 
 
+        const output = {
+            "page":page,
+            "page_total":pageTotal,
+            "items":items
+        }
+        console.log("Parsed Results:", output); // パース結果をログ出力（デバッグ用）
 
 
-
-        console.log("Parsed Results:", results); // パース結果をログ出力（デバッグ用）
-
-        res.json(results);
+        res.json(output);
     } catch (error) {
         console.error("Error:", error);
         res.status(500).json({ error: "データの取得に失敗しました" });

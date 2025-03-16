@@ -1,6 +1,7 @@
 {
-    "routes": [
-      { "src": "/api/spapi", "dest": "/api/spapi.js" },
-      { "src": "/api/aucfree", "dest": "/api/aucfree.js" }
-    ]
+    "functions": {
+      "api/*.js": {
+        "runtime": "nodejs18.x"
+      }
+    }
   }

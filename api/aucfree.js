@@ -10,13 +10,14 @@ module.exports = async (req, res) => {
         //     return res.status(400).json({ error: "キーワードを指定してください" });
         // }
         const page = Number(req.query.page ?? 1);
-        const negative_keyword = req.query.negative_keyword;
-        const status = req.query.status;
-        const seller = req.query.seller;
-        const min = req.query.min;
-        const max = req.query.max;
+        const negative_keyword = req.query.negative_keyword ?? "";
+        const status = req.query.status ?? "";
+        const seller = req.query.seller ?? "";
+        const min = req.query.min ?? "";
+        const max = req.query.max ?? "";
 
-        const url = `https://aucfree.com/search?from=2015-06&o=t2&q=${encodeURIComponent(keyword)}&to=2030-01&p=${page}&nq=${negative_keyword}&itemstatus=${status}&seller=${seller}&l=${min}&u=${max}`;
+        const url = `https://aucfree.com/search?from=2015-06&o=t2&q=${encodeURIComponent(keyword)}&to=2030-01&p=${page}&nq=${encodeURIComponent(negative_keyword)}&itemstatus=${status}&seller=${seller}&l=${min}&u=${max}`;
+        console.log( url )
 
         // HTML を取得
         const response = await axios.get(url, {

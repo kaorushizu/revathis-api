@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
       }
     });
 
-    console.log("Fetched HTML:", response.data.substring(0, 500)); // 500文字だけ出力（デバッグ用）
+    console.log("Fetched HTML:", response.data); // 500文字だけ出力（デバッグ用）
 
     const $ = cheerio.load(response.data);
     const results = [];

@@ -1,6 +1,6 @@
 {
   "routes": [
-    { "src": "/api/spapi", "dest": "/api/spapi.js" },
+    { "src": "/api/spapi", "dest":"/api/spapi.js" },
     { "src": "/api/aucfree", "dest": "/api/aucfree.js" }
   ],
   "headers": [

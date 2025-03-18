@@ -1,24 +1,15 @@
 {
-  "routes": [
-    { "src": "/api/spapi", "dest": "/api/spapi.js" },
-    { "src": "/api/aucfree", "dest": "/api/aucfree.js" }
+  "rewrites": [
+    { "source": "/api/spapi", "destination": "/api/spapi.js" },
+    { "source": "/api/aucfree", "destination": "/api/aucfree.js" }
   ],
   "headers": [
     {
       "source": "/api/(.*)",
       "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, OPTIONS"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization"
-        }
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
       ]
     }
   ]

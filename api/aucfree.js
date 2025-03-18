@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
         const $ = cheerio.load(response.data);
         
         //合計数取得
-        const pageTotal = Number($(".page_nav:nth-of-type(1) p span:nth-of-type(3)").text().replace(",",""));        
+        const pageTotal = Number($(".page_nav:nth-of-type(1) p span:nth-of-type(3)").text().replaceAll(",",""));        
 
         let items = [];
 

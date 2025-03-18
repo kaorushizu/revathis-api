@@ -2,7 +2,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 module.exports = async (req, res) => {
-
+// test
 
     try {
         const keyword = req.query.keyword;
@@ -78,7 +78,7 @@ module.exports = async (req, res) => {
                 // 送料: $item.find(".add_shipping").text().trim()
             };
             //商品画像はオークファン形式へ切替
-            itemObj.画像URL = `https://auctions.afimg.jp/item_data/thumbnail/${convertDateToNumber(itemObj.終了日)}/yahoo/c/${itemObj.オークションID}.jpg`
+            // itemObj.画像URL = `https://auctions.afimg.jp/item_data/thumbnail/${convertDateToNumber(itemObj.終了日)}/yahoo/c/${itemObj.オークションID}.jpg`
 
             items.push(itemObj);
 
@@ -99,3 +99,84 @@ module.exports = async (req, res) => {
         res.status(500).json({ error: "データの取得に失敗しました" });
     }
 };
+
+// // API パラメーター仕様書
+
+// ## エンドポイント
+// `GET /api/aucfree`
+
+// ## パラメーター
+
+// ### keyword (必須)
+// - 説明: 検索キーワード
+// - 型: `string`
+// - 例: `laptop`
+
+// ### page (任意)
+// - 説明: ページ番号
+// - 型: `number`
+// - デフォルト: `1`
+// - 例: `2`
+
+// ### negative_keyword (任意)
+// - 説明: 除外するキーワード
+// - 型: `string`
+// - デフォルト: `""`
+// - 例: `used`
+
+// ### status (任意)
+// - 説明: 商品の状態
+// - 型: `string`
+// - デフォルト: `""`
+// - 例: `new`
+
+// ### seller (任意)
+// - 説明: 出品者のID
+// - 型: `string`
+// - デフォルト: `""`
+// - 例: `seller123`
+
+// ### min (任意)
+// - 説明: 最低価格
+// - 型: `string`
+// - デフォルト: `""`
+// - 例: `1000`
+
+// ### max (任意)
+// - 説明: 最高価格
+// - 型: `string`
+// - デフォルト: `""`
+// - 例: `5000`
+
+// ## レスポンス
+
+// ### 成功時 (200 OK)
+// - 説明: 検索結果を返します。
+// - 型: `application/json`
+// - 例:
+//   ```json
+//   {
+//       "page": 1,
+//       "page_total": 10,
+//       "items": [
+//           {
+//               "オークションID": "123456789",
+//               "商品名": "Example Product",
+//               "落札金額": 1500,
+//               "画像URL": "https://example.com/image.jpg",
+//               "入札数": 5,
+//               "終了日": "2023-10-01"
+//           }
+//       ]
+//   }
+//   ```
+
+// ### 失敗時 (500 Internal Server Error)
+// - 説明: データの取得に失敗した場合のエラーメッセージを返します。
+// - 型: `application/json`
+// - 例:
+//   ```json
+//   {
+//       "error": "データの取得に失敗しました"
+//   }
+//   ```

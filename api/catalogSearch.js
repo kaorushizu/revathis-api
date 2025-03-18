@@ -36,7 +36,7 @@ module.exports = async (req, res) => {
             query: {
                 includedData: ["images", "summaries"],
                 marketplaceIds: ["A1VC38T7YXB528"], // 日本のマーケットプレイス
-                keywords: keywords
+                keywords: encodeURIComponent(keywords)
             },
             options: { version: "2022-04-01" }
         });

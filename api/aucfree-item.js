@@ -8,19 +8,6 @@ const CONFIG = {
   BASE_URL: "https://aucfree.com/items"
 };
 
-// セレクタ定義
-const SELECTORS = {
-  TITLE: "#item_tl_h1 h1",
-  PRICE: "li:contains('落札価格')",
-  START_PRICE: "li:contains('開始価格')",
-  BID_COUNT: "li:contains('入札件数')",
-  CONDITION: "li:contains('商品状態')",
-  END_DATE: "#item_info_box dt",
-  IMAGES: "#item_imgs li.itemimage img.item_img",
-  DESCRIPTION: "#item_desc > center",
-  CATEGORIES: "#category_path a"
-};
-
 /**
  * オークションIDからURLを構築する関数
  * @param {string} auctionId - オークションID
@@ -51,14 +38,102 @@ function dateToUnix(dateText) {
 /**
  * 数値文字列から数値を抽出する関数
  * @param {string} text - 数値が含まれる文字列
- * @returns {string} 抽出された数値文字列
+ * @param {RegExp} pattern - 抽出パターン
+ * @returns {number|null} 抽出された数値
  */
-function extractNumber(text) {
-  return text.match(/([0-9,]+)/)?.[1]?.replace(/,/g, '') || '';
+function extractNumber(text, pattern) {
+  const match = text.match(pattern);
+  return match ? Number(match[1].replace(/,/g, '')) : null;
 }
 
 /**
  * 商品情報を取得する関数
+ * @param {CheerioStatic} $ - Cheerioインスタンス
+ * @returns {Object} 商品情報オブジェクト
+ */
+function extractItemInfo($, auctionId) {
+  // 商品タイトル
+  const title = $('#item_tl_h1 h1').clone().find('span').remove().end().text().trim();
+  
+  // 価格情報
+  const priceText = $('li:contains("落札価格")').text().trim();
+  const price = extractNumber(priceText, /([0-9,]+)円/);
+  
+  const startPriceText = $('li:contains("開始価格")').text().trim();
+  const startPrice = extractNumber(startPriceText, /([0-9,]+)円/);
+  
+  // 入札情報
+  const bidCountText = $('li:contains("入札件数")').text().trim();
+  const bidCount = extractNumber(bidCountText, /([0-9]+)/);
+  const biddersNum = bidCount;
+  const watchListNum = 0;
+  
+  // 商品状態
+  const conditionText = $('li:contains("商品状態")').text().trim();
+  const condition = conditionText.split('商品状態')[1]?.trim() || '';
+  
+  // 日時情報
+  let endDate = '';
+  $('#item_info_box dt').each((i, el) => {
+    if ($(el).text().trim() === '終了日時') {
+      endDate = $(el).next('dd').text().trim();
+      return false;
+    }
+  });
+  const endDateUnix = dateToUnix(endDate);
+  
+  // 商品画像
+  const images = [];
+  $('#item_imgs li.itemimage img.item_img').each((i, el) => {
+    const imgSrc = $(el).attr('data-src-original') || $(el).attr('src');
+    if (imgSrc && !imgSrc.includes('loading.svg')) {
+      images.push(imgSrc);
+    }
+  });
+  
+  // 商品説明
+  const description = $('#item_desc > center').html().trim();
+  
+  // カテゴリ情報
+  const categories = [];
+  $('#category_path a').each((i, el) => {
+    const categoryName = $(el).text().trim();
+    const href = $(el).attr('href');
+    const categoryId = href?.match(/c=(\d+)/)?.[1] || String(i);
+    if (categoryName && categoryName !== 'トップ') {
+      categories.push({
+        name: categoryName,
+        id: categoryId
+      });
+    }
+  });
+  
+  return {
+    auctionId,
+    title,
+    keyword: null,
+    quantity: 1,
+    biddersNum: biddersNum || 0,
+    watchListNum,
+    price,
+    startPrice,
+    bidCount,
+    condition,
+    endDate,
+    endDateUnix,
+    images,
+    description,
+    categories,
+    brands: null,
+    seller: null,
+    shipping: null,
+    tax: null,
+    url: buildUrl(auctionId)
+  };
+}
+
+/**
+ * オークフリーの商品ページから商品情報を取得する関数
  * @param {string} auctionId - オークションID
  * @returns {Object} 商品情報オブジェクト
  */
@@ -73,80 +148,7 @@ async function fetchItemData(auctionId) {
     });
     
     const $ = cheerio.load(response.data);
-    
-    // 商品タイトル
-    const title = $(SELECTORS.TITLE).clone().find('span').remove().end().text().trim();
-    
-    // 価格情報
-    const price = extractNumber($(SELECTORS.PRICE).text().trim());
-    const startPrice = extractNumber($(SELECTORS.START_PRICE).text().trim());
-    
-    // 入札情報
-    const bidCount = extractNumber($(SELECTORS.BID_COUNT).text().trim());
-    const biddersNum = bidCount;
-    const watchListNum = 0;
-    
-    // 商品状態
-    const condition = $(SELECTORS.CONDITION).text().trim().split('商品状態')[1]?.trim() || '';
-    
-    // 日時情報
-    let endDate = '';
-    $(SELECTORS.END_DATE).each((i, el) => {
-      if ($(el).text().trim() === '終了日時') {
-        endDate = $(el).next('dd').text().trim();
-        return false;
-      }
-    });
-    const endDateUnix = dateToUnix(endDate);
-    
-    // 商品画像
-    const images = [];
-    $(SELECTORS.IMAGES).each((i, el) => {
-      const imgSrc = $(el).attr('data-src-original') || $(el).attr('src');
-      if (imgSrc && !imgSrc.includes('loading.svg')) {
-        images.push(imgSrc);
-      }
-    });
-    
-    // 商品説明
-    const description = $(SELECTORS.DESCRIPTION).html().trim();
-    
-    // カテゴリ情報
-    const categories = [];
-    $(SELECTORS.CATEGORIES).each((i, el) => {
-      const categoryName = $(el).text().trim();
-      const href = $(el).attr('href');
-      const categoryId = href?.match(/c=(\d+)/)?.[1] || String(i);
-      if (categoryName && categoryName !== 'トップ') {
-        categories.push({
-          name: categoryName,
-          id: categoryIdモデル
-        });
-      }
-    });
-    
-    return {
-      auctionId,
-      title,
-      keyword: null,
-      quantity: 1,
-      biddersNum: Number(biddersNum) || 0,
-      watchListNum,
-      price: Number(price) || null,
-      startPrice: Number(startPrice) || null,
-      bidCount: Number(bidCount) || null,
-      condition,
-      endDate,
-      endDateUnix,
-      images,
-      description,
-      categories,
-      brands: null,
-      seller: null,
-      shipping: null,
-      tax: null,
-      url
-    };
+    return extractItemInfo($, auctionId);
     
   } catch (error) {
     console.error(`商品情報の取得に失敗しました: ${error.message}`);
@@ -165,6 +167,7 @@ function isValidAuctionId(auctionId) {
 
 // APIハンドラー関数
 module.exports = async (req, res) => {
+  // GETリクエストのみ許可
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'GETメソッドのみ許可されています' });
   }
@@ -172,18 +175,24 @@ module.exports = async (req, res) => {
   try {
     const { auctionId } = req.query;
     
+    // オークションIDパラメータが必須
     if (!auctionId) {
       return res.status(400).json({ error: 'オークションIDが必要です' });
     }
     
+    // オークションIDの形式チェック
     if (!isValidAuctionId(auctionId)) {
       return res.status(400).json({ error: '無効なオークションID形式です' });
     }
     
     console.log(`商品情報取得開始: ${auctionId}`);
+    
+    // 商品情報を取得
     const itemInfo = await fetchItemData(auctionId);
+    
     console.log(`商品情報取得完了: ${itemInfo.title}`);
     
+    // 結果を返す
     return res.status(200).json(itemInfo);
     
   } catch (error) {

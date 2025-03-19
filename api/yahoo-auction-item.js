@@ -23,33 +23,55 @@ function formatDate(date) {
 // 商品データ取得関数
 async function fetchItemData(auctionId) {
   const url = buildUrl(auctionId);
-  const response = await axios.get(url, {
-    headers: { "User-Agent": USER_AGENT },
-    timeout: DEFAULT_TIMEOUT
-  });
-  
-  const html = response.data;
-  const nextDataMatch = html.match(/<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s);
-  
-  if (!nextDataMatch?.[1]) {
-    throw new Error('商品データが見つかりません');
-  }
-  
   try {
-    const nextData = JSON.parse(nextDataMatch[1]);
-    return nextData.props?.pageProps?.initialState?.item?.detail;
-  } catch (e) {
-    console.error('NEXT_DATAのパース中にエラー:', e);
-    throw new Error('商品データの解析に失敗しました');
+    console.log(`[INFO] 商品ページの取得を開始: ${url}`);
+    const response = await axios.get(url, {
+      headers: { "User-Agent": USER_AGENT },
+      timeout: DEFAULT_TIMEOUT
+    });
+    
+    const html = response.data;
+    const nextDataMatch = html.match(/<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s);
+    
+    if (!nextDataMatch?.[1]) {
+      console.error(`[ERROR] __NEXT_DATA__スクリプトが見つかりません: ${url}`);
+      throw new Error('商品データが見つかりません');
+    }
+    
+    try {
+      const nextData = JSON.parse(nextDataMatch[1]);
+      const itemData = nextData.props?.pageProps?.initialState?.item?.detail;
+      
+      if (!itemData) {
+        console.error(`[ERROR] 商品データが不正です: ${url}`);
+        throw new Error('商品データが不正です');
+      }
+      
+      return itemData;
+    } catch (e) {
+      console.error(`[ERROR] JSONのパースに失敗: ${e.message}`);
+      throw new Error('商品データの解析に失敗しました');
+    }
+  } catch (error) {
+    if (error.response) {
+      console.error(`[ERROR] HTTPエラー: ${error.response.status} ${error.response.statusText}`);
+      throw new Error(`HTTPエラー: ${error.response.status}`);
+    } else if (error.request) {
+      console.error(`[ERROR] リクエストエラー: ${error.message}`);
+      throw new Error('リクエストに失敗しました');
+    } else {
+      console.error(`[ERROR] 予期せぬエラー: ${error.message}`);
+      throw error;
+    }
   }
 }
 
 // 商品情報取得関数
 async function getItemInfo(auctionId) {
   try {
-    console.log(`[INFO] 商品ページを取得開始: ${auctionId}`);
+    console.log(`[INFO] 商品情報の取得を開始: ${auctionId}`);
     const itemData = await fetchItemData(auctionId);
-    console.log('NEXT_DATAから商品情報を取得しました');
+    console.log('[INFO] 商品データの取得に成功しました');
     
     // 基本情報
     const {
@@ -146,7 +168,7 @@ async function getItemInfo(auctionId) {
     };
     
   } catch (error) {
-    console.error(`[ERROR] 商品情報の取得に失敗しました: ${error.message}`);
+    console.error(`[ERROR] 商品情報の取得に失敗: ${error.message}`);
     console.error(`スタックトレース: ${error.stack}`);
     throw error;
   }

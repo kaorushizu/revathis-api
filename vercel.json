@@ -1,7 +1,9 @@
 {
   "rewrites": [
     { "source": "/api/spapi", "destination": "/api/spapi.js" },
-    { "source": "/api/aucfree", "destination": "/api/aucfree.js" }
+    { "source": "/api/aucfree", "destination": "/api/aucfree.js" },
+    { "source": "/api/aucfree-item", "destination": "/api/aucfree-item.js" },
+    { "source": "/api/yahoo-auction-item", "destination": "/api/yahoo-auction-item.js" }
   ],
   "headers": [
     {

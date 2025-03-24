@@ -71,7 +71,9 @@ module.exports = async (req, res) => {
                 商品名: $item.find(".addItemName").text().trim(),
                 落札金額: Number($item.find(".item_price").text().replace("円", "").replace(",", "").trim() ),
                 // カテゴリID: $item.find(".add_catId").text().trim(),
-                画像URL: $item.find(".results_bid-image a img").attr("data-src"),
+                画像URL: items.length === 0 
+                    ? $item.find(".results_bid-image a img").attr("src")
+                    : $item.find(".results_bid-image a img").attr("data-src"),
                 入札数: Number( $item.find(".results-bid").text().replace(/\r?\n/g, '').replace("件", "").trim() ),
                 終了日: $item.find(".results-limit").text().replace(/\r?\n/g, '').trim(),
                 // 状態: removeLeadingNumberAndDot($item.find(".add_conditionTag").text().trim()),
@@ -80,8 +82,8 @@ module.exports = async (req, res) => {
             //商品画像はオークファン形式へ切替
             //https://image-proxy.shizu-8bd.workers.dev/?url=https://aucfree.com/image/12345.jpg            
             // itemObj.画像URL = `https://auctions.afimg.jp/item_data/thumbnail/${convertDateToNumber(itemObj.終了日)}/yahoo/c/${itemObj.オークションID}.jpg`
-            // itemObj.画像URL = `https://image-proxy.shizu-8bd.workers.dev/?url=${itemObj.画像URL}`
-            itemObj.画像URL = `https://image-proxy.shizu-8bd.workers.dev/?url=https://img.aucfree.com/${itemObj.オークションID}.1.jpg`
+            itemObj.画像URL = `https://image-proxy.shizu-8bd.workers.dev/?url=${itemObj.画像URL}`
+            // itemObj.画像URL = `https://image-proxy.shizu-8bd.workers.dev/?url=https://img.aucfree.com/${itemObj.オークションID}.1.jpg`
             items.push(itemObj);
 
         });

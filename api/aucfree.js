@@ -80,7 +80,8 @@ module.exports = async (req, res) => {
             //商品画像はオークファン形式へ切替
             //https://image-proxy.shizu-8bd.workers.dev/?url=https://aucfree.com/image/12345.jpg            
             // itemObj.画像URL = `https://auctions.afimg.jp/item_data/thumbnail/${convertDateToNumber(itemObj.終了日)}/yahoo/c/${itemObj.オークションID}.jpg`
-            itemObj.画像URL = `https://image-proxy.shizu-8bd.workers.dev/?url=${itemObj.画像URL}`
+            // itemObj.画像URL = `https://image-proxy.shizu-8bd.workers.dev/?url=${itemObj.画像URL}`
+            itemObj.画像URL = `https://image-proxy.shizu-8bd.workers.dev/?url=https://img.aucfree.com/${itemObj.オークションID}.1.jpg`
             items.push(itemObj);
 
         });

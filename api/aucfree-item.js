@@ -87,7 +87,8 @@ function extractItemInfo($, auctionId) {
   $('#item_imgs li.itemimage img.item_img').each((i, el) => {
     const imgSrc = $(el).attr('data-src-original') || $(el).attr('src');
     if (imgSrc && !imgSrc.includes('loading.svg')) {
-      images.push(imgSrc);
+      const proxyUrl = `https://image-proxy.shizu-8bd.workers.dev/?url=${encodeURIComponent(imgSrc)}`;
+      images.push(proxyUrl);
     }
   });
   

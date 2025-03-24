@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"af198d6cf8","applicationID":"16796165","transactionName":"dA1WRxdbDVVdEBhRRFIPSxwWXA5O","queueTime":0,"applicationTime":61,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"af198d6cf8",applicationID:"16796165"};;/*! For license information please see nr-loader-rum-1.285.0.min.js.LICENSE.txt */
+(()=>{var e,t,r={8122:(e,t,r)=>{"use strict";r.d(t,{a:()=>i});var n=r(944);function i(e,t){try{if(!e||"object"!=typeof e)return(0,n.R)(3);if(!t||"object"!=typeof t)return(0,n.R)(4);const r=Object.create(Object.getPrototypeOf(t),Object.getOwnPropertyDescriptors(t)),o=0===Object.keys(r).length?e:r;for(let a in o)if(void 0!==e[a])try{if(null===e[a]){r[a]=null;continue}Array.isArray(e[a])&&Array.isArray(t[a])?r[a]=Array.from(new Set([...e[a],...t[a]])):"object"==typeof e[a]&&"object"==typeof t[a]?r[a]=i(e[a],t[a]):r[a]=e[a]}catch(e){(0,n.R)(1,e)}return r}catch(e){(0,n.R)(2,e)}}},2555:(e,t,r)=>{"use strict";r.d(t,{Vp:()=>c,fn:()=>s,x1:()=>u});var n=r(384),i=r(8122);const o={beacon:n.NT.beacon,errorBeacon:n.NT.errorBeacon,licenseKey:void 0,applicationID:void 0,sa:void 0,queueTime:void 0,applicationTime:void 0,ttGuid:void 0,user:void 0,account:void 0,product:void 0,extra:void 0,jsAttributes:{},userAttributes:void 0,atts:void 0,transactionName:void 0,tNamePlain:void 0},a={};function s(e){try{const t=c(e);return!!t.licenseKey&&!!t.errorBeacon&&!!t.applicationID}catch(e){return!1}}function c(e){if(!e)throw new Error("All info objects require an agent identifier!");if(!a[e])throw new Error("Info for ".concat(e," was never set"));return a[e]}function u(e,t){if(!e)throw new Error("All info objects require an agent identifier!");a[e]=(0,i.a)(t,o);const r=(0,n.nY)(e);r&&(r.info=a[e])}},5217:(e,t,r)=>{"use strict";r.d(t,{D0:()=>m,gD:()=>v,xN:()=>h});r(860).K7.genericEvents;const n="experimental.marks",i="experimental.measures",o="experimental.resources",a=e=>{if(!e||"string"!=typeof e)return!1;try{document.createDocumentFragment().querySelector(e)}catch{return!1}return!0};var s=r(2614),c=r(944),u=r(384),l=r(8122);const d="[data-nr-mask]",f=()=>{const e={feature_flags:[],experimental:{marks:!1,measures:!1,resources:!1},mask_selector:"*",block_selector:"[data-nr-block]",mask_input_options:{color:!1,date:!1,"datetime-local":!1,email:!1,month:!1,number:!1,range:!1,search:!1,tel:!1,text:!1,time:!1,url:!1,week:!1,textarea:!1,select:!1,password:!0}};return{ajax:{deny_list:void 0,block_internal:!0,enabled:!0,autoStart:!0},distributed_tracing:{enabled:void 0,exclude_newrelic_header:void 0,cors_use_newrelic_header:void 0,cors_use_tracecontext_headers:void 0,allowed_origins:void 0},get feature_flags(){return e.feature_flags},set feature_flags(t){e.feature_flags=t},generic_events:{enabled:!0,autoStart:!0},harvest:{interval:30},jserrors:{enabled:!0,autoStart:!0},logging:{enabled:!0,autoStart:!0},metrics:{enabled:!0,autoStart:!0},obfuscate:void 0,page_action:{enabled:!0},page_view_event:{enabled:!0,autoStart:!0},page_view_timing:{enabled:!0,autoStart:!0},performance:{get capture_marks(){return e.feature_flags.includes(n)||e.experimental.marks},set capture_marks(t){e.experimental.marks=t},get capture_measures(){return e.feature_flags.includes(i)||e.experimental.measures},set capture_measures(t){e.experimental.measures=t},capture_detail:!0,resources:{get enabled(){return e.feature_flags.includes(o)||e.experimental.resources},set enabled(t){e.experimental.resources=t},asset_types:[],first_party_domains:[],ignore_newrelic:!0}},privacy:{cookies_enabled:!0},proxy:{assets:void 0,beacon:void 0},session:{expiresMs:s.wk,inactiveMs:s.BB},session_replay:{autoStart:!0,enabled:!1,preload:!1,sampling_rate:10,error_sampling_rate:100,collect_fonts:!1,inline_images:!1,fix_stylesheets:!0,mask_all_inputs:!0,get mask_text_selector(){return e.mask_selector},set mask_text_selector(t){a(t)?e.mask_selector="".concat(t,",").concat(d):""===t||null===t?e.mask_selector=d:(0,c.R)(5,t)},get block_class(){return"nr-block"},get ignore_class(){return"nr-ignore"},get mask_text_class(){return"nr-mask"},get block_selector(){return e.block_selector},set block_selector(t){a(t)?e.block_selector+=",".concat(t):""!==t&&(0,c.R)(6,t)},get mask_input_options(){return e.mask_input_options},set mask_input_options(t){t&&"object"==typeof t?e.mask_input_options={...t,password:!0}:(0,c.R)(7,t)}},session_trace:{enabled:!0,autoStart:!0},soft_navigations:{enabled:!0,autoStart:!0},spa:{enabled:!0,autoStart:!0},ssl:void 0,user_actions:{enabled:!0,elementAttributes:["id","className","tagName","type"]}}},g={},p="All configuration objects require an agent identifier!";function m(e){if(!e)throw new Error(p);if(!g[e])throw new Error("Configuration for ".concat(e," was never set"));return g[e]}function h(e,t){if(!e)throw new Error(p);g[e]=(0,l.a)(t,f());const r=(0,u.nY)(e);r&&(r.init=g[e])}function v(e,t){if(!e)throw new Error(p);var r=m(e);if(r){for(var n=t.split("."),i=0;i<n.length-1;i++)if("object"!=typeof(r=r[n[i]]))return;r=r[n[n.length-1]]}return r}},3371:(e,t,r)=>{"use strict";r.d(t,{V:()=>f,f:()=>d});var n=r(8122),i=r(384),o=r(6154),a=r(9324);let s=0;const c={buildEnv:a.F3,distMethod:a.Xs,version:a.xv,originTime:o.WN},u={customTransaction:void 0,disabled:!1,isolatedBacklog:!1,loaderType:void 0,maxBytes:3e4,onerror:void 0,ptid:void 0,releaseIds:{},appMetadata:{},session:void 0,denyList:void 0,timeKeeper:void 0,obfuscator:void 0,harvester:void 0},l={};function d(e){if(!e)throw new Error("All runtime objects require an agent identifier!");if(!l[e])throw new Error("Runtime for ".concat(e," was never set"));return l[e]}function f(e,t){if(!e)throw new Error("All runtime objects require an agent identifier!");l[e]={...(0,n.a)(t,u),...c},Object.hasOwnProperty.call(l[e],"harvestCount")||Object.defineProperty(l[e],"harvestCount",{get:()=>++s});const r=(0,i.nY)(e);r&&(r.runtime=l[e])}},9324:(e,t,r)=>{"use strict";r.d(t,{F3:()=>i,Xs:()=>o,xv:()=>n});const n="1.285.0",i="PROD",o="CDN"},6154:(e,t,r)=>{"use strict";r.d(t,{OF:()=>c,RI:()=>i,WN:()=>l,bv:()=>o,gm:()=>a,mw:()=>s,sb:()=>u});var n=r(1863);const i="undefined"!=typeof window&&!!window.document,o="undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self.navigator instanceof WorkerNavigator||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis.navigator instanceof WorkerNavigator),a=i?window:"undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis),s=Boolean("hidden"===a?.document?.visibilityState),c=/iPad|iPhone|iPod/.test(a.navigator?.userAgent),u=c&&"undefined"==typeof SharedWorker,l=((()=>{const e=a.navigator?.userAgent?.match(/Firefox[/\s](\d+\.\d+)/);Array.isArray(e)&&e.length>=2&&e[1]})(),Date.now()-(0,n.t)())},3241:(e,t,r)=>{"use strict";r.d(t,{W:()=>o});var n=r(6154);const i="newrelic";function o(e={}){try{n.gm.dispatchEvent(new CustomEvent(i,{detail:e}))}catch(e){}}},1687:(e,t,r)=>{"use strict";r.d(t,{Ak:()=>c,Ze:()=>d,x3:()=>u});var n=r(7836),i=r(3606),o=r(860),a=r(2646);const s={};function c(e,t){const r={staged:!1,priority:o.P3[t]||0};l(e),s[e].get(t)||s[e].set(t,r)}function u(e,t){e&&s[e]&&(s[e].get(t)&&s[e].delete(t),g(e,t,!1),s[e].size&&f(e))}function l(e){if(!e)throw new Error("agentIdentifier required");s[e]||(s[e]=new Map)}function d(e="",t="feature",r=!1){if(l(e),!e||!s[e].get(t)||r)return g(e,t);s[e].get(t).staged=!0,f(e)}function f(e){const t=Array.from(s[e]);t.every((([e,t])=>t.staged))&&(t.sort(((e,t)=>e[1].priority-t[1].priority)),t.forEach((([t])=>{s[e].delete(t),g(e,t)})))}function g(e,t,r=!0){const o=e?n.ee.get(e):n.ee,s=i.i.handlers;if(!o.aborted&&o.backlog&&s){if(r){const e=o.backlog[t],r=s[t];if(r){for(let t=0;e&&t<e.length;++t)p(e[t],r);Object.entries(r).forEach((([e,t])=>{Object.values(t||{}).forEach((t=>{t[0]?.on&&t[0]?.context()instanceof a.y&&t[0].on(e,t[1])}))}))}}o.isolatedBacklog||delete s[t],o.backlog[t]=null,o.emit("drain-"+t,[])}}function p(e,t){var r=e[1];Object.values(t[r]||{}).forEach((t=>{var r=e[0];if(t[0]===r){var n=t[1],i=e[3],o=e[2];n.apply(i,o)}}))}},7836:(e,t,r)=>{"use strict";r.d(t,{P:()=>c,ee:()=>u});var n=r(384),i=r(8990),o=r(3371),a=r(2646),s=r(5607);const c="nr@context:".concat(s.W),u=function e(t,r){var n={},s={},l={},d=!1;try{d=16===r.length&&(0,o.f)(r).isolatedBacklog}catch(e){}var f={on:p,addEventListener:p,removeEventListener:function(e,t){var r=n[e];if(!r)return;for(var i=0;i<r.length;i++)r[i]===t&&r.splice(i,1)},emit:function(e,r,n,i,o){!1!==o&&(o=!0);if(u.aborted&&!i)return;t&&o&&t.emit(e,r,n);for(var a=g(n),c=m(e),l=c.length,d=0;d<l;d++)c[d].apply(a,r);var p=v()[s[e]];p&&p.push([f,e,r,a]);return a},get:h,listeners:m,context:g,buffer:function(e,t){const r=v();if(t=t||"feature",f.aborted)return;Object.entries(e||{}).forEach((([e,n])=>{s[n]=t,t in r||(r[t]=[])}))},abort:function(){f._aborted=!0,Object.keys(f.backlog).forEach((e=>{delete f.backlog[e]}))},isBuffering:function(e){return!!v()[s[e]]},debugId:r,backlog:d?{}:t&&"object"==typeof t.backlog?t.backlog:{},isolatedBacklog:d};return Object.defineProperty(f,"aborted",{get:()=>{let e=f._aborted||!1;return e||(t&&(e=t.aborted),e)}}),f;function g(e){return e&&e instanceof a.y?e:e?(0,i.I)(e,c,(()=>new a.y(c))):new a.y(c)}function p(e,t){n[e]=m(e).concat(t)}function m(e){return n[e]||[]}function h(t){return l[t]=l[t]||e(f,t)}function v(){return f.backlog}}(void 0,"globalEE"),l=(0,n.Zm)();l.ee||(l.ee=u)},2646:(e,t,r)=>{"use strict";r.d(t,{y:()=>n});class n{constructor(e){this.contextId=e}}},9908:(e,t,r)=>{"use strict";r.d(t,{d:()=>n,p:()=>i});var n=r(7836).ee.get("handle");function i(e,t,r,i,o){o?(o.buffer([e],i),o.emit(e,t,r)):(n.buffer([e],i),n.emit(e,t,r))}},3606:(e,t,r)=>{"use strict";r.d(t,{i:()=>o});var n=r(9908);o.on=a;var i=o.handlers={};function o(e,t,r,o){a(o||n.d,i,e,t,r)}function a(e,t,r,i,o){o||(o="feature"),e||(e=n.d);var a=t[o]=t[o]||{};(a[r]=a[r]||[]).push([e,i])}},3878:(e,t,r)=>{"use strict";function n(e,t){return{capture:e,passive:!1,signal:t}}function i(e,t,r=!1,i){window.addEventListener(e,t,n(r,i))}function o(e,t,r=!1,i){document.addEventListener(e,t,n(r,i))}r.d(t,{DD:()=>o,jT:()=>n,sp:()=>i})},5607:(e,t,r)=>{"use strict";r.d(t,{W:()=>n});const n=(0,r(9566).bz)()},9566:(e,t,r)=>{"use strict";r.d(t,{LA:()=>s,bz:()=>a});var n=r(6154);const i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";function o(e,t){return e?15&e[t]:16*Math.random()|0}function a(){const e=n.gm?.crypto||n.gm?.msCrypto;let t,r=0;return e&&e.getRandomValues&&(t=e.getRandomValues(new Uint8Array(30))),i.split("").map((e=>"x"===e?o(t,r++).toString(16):"y"===e?(3&o()|8).toString(16):e)).join("")}function s(e){const t=n.gm?.crypto||n.gm?.msCrypto;let r,i=0;t&&t.getRandomValues&&(r=t.getRandomValues(new Uint8Array(e)));const a=[];for(var s=0;s<e;s++)a.push(o(r,i++).toString(16));return a.join("")}},2614:(e,t,r)=>{"use strict";r.d(t,{BB:()=>a,H3:()=>n,g:()=>u,iL:()=>c,tS:()=>s,uh:()=>i,wk:()=>o});const n="NRBA",i="SESSION",o=144e5,a=18e5,s={STARTED:"session-started",PAUSE:"session-pause",RESET:"session-reset",RESUME:"session-resume",UPDATE:"session-update"},c={SAME_TAB:"same-tab",CROSS_TAB:"cross-tab"},u={OFF:0,FULL:1,ERROR:2}},1863:(e,t,r)=>{"use strict";function n(){return Math.floor(performance.now())}r.d(t,{t:()=>n})},944:(e,t,r)=>{"use strict";function n(e,t){"function"==typeof console.debug&&console.debug("New Relic Warning: https://github.com/newrelic/newrelic-browser-agent/blob/main/docs/warning-codes.md#".concat(e),t)}r.d(t,{R:()=>n})},5701:(e,t,r)=>{"use strict";r.d(t,{B:()=>a,t:()=>s});var n=r(7836),i=r(3241);const o=new Set,a={};function s(e,t){const r=n.ee.get(t);a[t]??={},e&&"object"==typeof e&&(o.has(t)||(r.emit("rumresp",[e]),a[t]=e,o.add(t),(0,i.W)({agentIdentifier:t,loaded:!0,type:"lifecycle",name:"load",feature:void 0,data:e})))}},8990:(e,t,r)=>{"use strict";r.d(t,{I:()=>i});var n=Object.prototype.hasOwnProperty;function i(e,t,r){if(n.call(e,t))return e[t];var i=r();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:i,writable:!0,enumerable:!1}),i}catch(e){}return e[t]=i,i}},6389:(e,t,r)=>{"use strict";function n(e,t=500,r={}){const n=r?.leading||!1;let i;return(...r)=>{n&&void 0===i&&(e.apply(this,r),i=setTimeout((()=>{i=clearTimeout(i)}),t)),n||(clearTimeout(i),i=setTimeout((()=>{e.apply(this,r)}),t))}}function i(e){let t=!1;return(...r)=>{t||(t=!0,e.apply(this,r))}}r.d(t,{J:()=>i,s:()=>n})},5289:(e,t,r)=>{"use strict";r.d(t,{GG:()=>o,sB:()=>a});var n=r(3878);function i(){return"undefined"==typeof document||"complete"===document.readyState}function o(e,t){if(i())return e();(0,n.sp)("load",e,t)}function a(e){if(i())return e();(0,n.DD)("DOMContentLoaded",e)}},384:(e,t,r)=>{"use strict";r.d(t,{NT:()=>o,US:()=>l,Zm:()=>a,bQ:()=>c,dV:()=>s,nY:()=>u,pV:()=>d});var n=r(6154),i=r(1863);const o={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net"};function a(){return n.gm.NREUM||(n.gm.NREUM={}),void 0===n.gm.newrelic&&(n.gm.newrelic=n.gm.NREUM),n.gm.NREUM}function s(){let e=a();return e.o||(e.o={ST:n.gm.setTimeout,SI:n.gm.setImmediate,CT:n.gm.clearTimeout,XHR:n.gm.XMLHttpRequest,REQ:n.gm.Request,EV:n.gm.Event,PR:n.gm.Promise,MO:n.gm.MutationObserver,FETCH:n.gm.fetch,WS:n.gm.WebSocket}),e}function c(e,t){let r=a();r.initializedAgents??={},t.initializedAt={ms:(0,i.t)(),date:new Date},r.initializedAgents[e]=t}function u(e){let t=a();return t.initializedAgents?.[e]}function l(e,t){a()[e]=t}function d(){return function(){let e=a();const t=e.info||{};e.info={beacon:o.beacon,errorBeacon:o.errorBeacon,...t}}(),function(){let e=a();const t=e.init||{};e.init={...t}}(),s(),function(){let e=a();const t=e.loader_config||{};e.loader_config={...t}}(),a()}},2843:(e,t,r)=>{"use strict";r.d(t,{u:()=>i});var n=r(3878);function i(e,t=!1,r,i){(0,n.DD)("visibilitychange",(function(){if(t)return void("hidden"===document.visibilityState&&e());e(document.visibilityState)}),r,i)}},3434:(e,t,r)=>{"use strict";r.d(t,{Jt:()=>o,YM:()=>c});var n=r(7836),i=r(5607);const o="nr@original:".concat(i.W);var a=Object.prototype.hasOwnProperty,s=!1;function c(e,t){return e||(e=n.ee),r.inPlace=function(e,t,n,i,o){n||(n="");const a="-"===n.charAt(0);for(let s=0;s<t.length;s++){const c=t[s],u=e[c];l(u)||(e[c]=r(u,a?c+n:n,i,c,o))}},r.flag=o,r;function r(t,r,n,s,c){return l(t)?t:(r||(r=""),nrWrapper[o]=t,function(e,t,r){if(Object.defineProperty&&Object.keys)try{return Object.keys(e).forEach((function(r){Object.defineProperty(t,r,{get:function(){return e[r]},set:function(t){return e[r]=t,t}})})),t}catch(e){u([e],r)}for(var n in e)a.call(e,n)&&(t[n]=e[n])}(t,nrWrapper,e),nrWrapper);function nrWrapper(){var o,a,l,d;try{a=this,o=[...arguments],l="function"==typeof n?n(o,a):n||{}}catch(t){u([t,"",[o,a,s],l],e)}i(r+"start",[o,a,s],l,c);try{return d=t.apply(a,o)}catch(e){throw i(r+"err",[o,a,e],l,c),e}finally{i(r+"end",[o,a,d],l,c)}}}function i(r,n,i,o){if(!s||t){var a=s;s=!0;try{e.emit(r,n,i,t,o)}catch(t){u([t,r,n,i],e)}s=a}}}function u(e,t){t||(t=n.ee);try{t.emit("internal-error",e)}catch(e){}}function l(e){return!(e&&"function"==typeof e&&e.apply&&!e[o])}},993:(e,t,r)=>{"use strict";r.d(t,{A$:()=>o,ET:()=>a,p_:()=>i});var n=r(860);const i={ERROR:"ERROR",WARN:"WARN",INFO:"INFO",DEBUG:"DEBUG",TRACE:"TRACE"},o={OFF:0,ERROR:1,WARN:2,INFO:3,DEBUG:4,TRACE:5},a="log";n.K7.logging},8154:(e,t,r)=>{"use strict";r.d(t,{z_:()=>o,XG:()=>s,TZ:()=>n,rs:()=>i,xV:()=>a});r(6154),r(9566),r(384);const n=r(860).K7.metrics,i="sm",o="cm",a="storeSupportabilityMetrics",s="storeEventMetrics"},6630:(e,t,r)=>{"use strict";r.d(t,{T:()=>n});const n=r(860).K7.pageViewEvent},782:(e,t,r)=>{"use strict";r.d(t,{T:()=>n});const n=r(860).K7.pageViewTiming},6344:(e,t,r)=>{"use strict";r.d(t,{G4:()=>i});var n=r(2614);r(860).K7.sessionReplay;const i={RECORD:"recordReplay",PAUSE:"pauseReplay",REPLAY_RUNNING:"replayRunning",ERROR_DURING_REPLAY:"errorDuringReplay"};n.g.ERROR,n.g.FULL,n.g.OFF},4234:(e,t,r)=>{"use strict";r.d(t,{W:()=>o});var n=r(7836),i=r(1687);class o{constructor(e,t){this.agentIdentifier=e,this.ee=n.ee.get(e),this.featureName=t,this.blocked=!1}deregisterDrain(){(0,i.x3)(this.agentIdentifier,this.featureName)}}},7603:(e,t,r)=>{"use strict";r.d(t,{j:()=>V});var n=r(860),i=r(2555),o=r(3371),a=r(9908),s=r(7836),c=r(1687),u=r(5289),l=r(6154),d=r(944),f=r(8154),g=r(384),p=r(6344);const m=["setErrorHandler","finished","addToTrace","addRelease","recordCustomEvent","addPageAction","setCurrentRouteName","setPageViewName","setCustomAttribute","interaction","noticeError","setUserId","setApplicationVersion","start",p.G4.RECORD,p.G4.PAUSE,"log","wrapLogger"],h=["setErrorHandler","finished","addToTrace","addRelease"];var v=r(1863),b=r(2614),y=r(993);var w=r(2646),R=r(3434);const A=new Map;function E(e,t,r,n){if("object"!=typeof t||!t||"string"!=typeof r||!r||"function"!=typeof t[r])return(0,d.R)(29);const i=function(e){return(e||s.ee).get("logger")}(e),o=(0,R.YM)(i),a=new w.y(s.P);a.level=n.level,a.customAttributes=n.customAttributes;const c=t[r]?.[R.Jt]||t[r];return A.set(c,a),o.inPlace(t,[r],"wrap-logger-",(()=>A.get(c))),i}var _=r(3241),x=r(5701);function N(){const e=(0,g.pV)();m.forEach((t=>{e[t]=(...r)=>function(t,...r){let n=[];return Object.values(e.initializedAgents).forEach((e=>{e&&e.api?e.exposed&&e.api[t]&&n.push(e.api[t](...r)):(0,d.R)(38,t)})),n.length>1?n:n[0]}(t,...r)}))}const k={};function I(e,t,g=!1){t||(0,c.Ak)(e,"api");const m={};var w=s.ee.get(e),R=w.get("tracer");k[e]=b.g.OFF,w.on(p.G4.REPLAY_RUNNING,(t=>{k[e]=t}));var A="api-",N=A+"ixn-";function I(t,r,n,o){const a=(0,i.Vp)(e);return null===r?delete a.jsAttributes[t]:(0,i.x1)(e,{...a,jsAttributes:{...a.jsAttributes,[t]:r}}),S(A,n,!0,o||null===r?"session":void 0)(t,r)}function T(){}m.log=function(e,{customAttributes:t={},level:r=y.p_.INFO}={}){(0,a.p)(f.xV,["API/log/called"],void 0,n.K7.metrics,w),function(e,t,r={},i=y.p_.INFO){(0,a.p)(f.xV,["API/logging/".concat(i.toLowerCase(),"/called")],void 0,n.K7.metrics,e),(0,a.p)(y.ET,[(0,v.t)(),t,r,i],void 0,n.K7.logging,e)}(w,e,t,r)},m.wrapLogger=(e,t,{customAttributes:r={},level:i=y.p_.INFO}={})=>{(0,a.p)(f.xV,["API/wrapLogger/called"],void 0,n.K7.metrics,w),E(w,e,t,{customAttributes:r,level:i})},h.forEach((e=>{m[e]=S(A,e,!0,"api")})),m.addPageAction=S(A,"addPageAction",!0,n.K7.genericEvents),m.recordCustomEvent=S(A,"recordCustomEvent",!0,n.K7.genericEvents),m.setPageViewName=function(t,r){if("string"==typeof t)return"/"!==t.charAt(0)&&(t="/"+t),(0,o.f)(e).customTransaction=(r||"http://custom.transaction")+t,S(A,"setPageViewName",!0)()},m.setCustomAttribute=function(e,t,r=!1){if("string"==typeof e){if(["string","number","boolean"].includes(typeof t)||null===t)return I(e,t,"setCustomAttribute",r);(0,d.R)(40,typeof t)}else(0,d.R)(39,typeof e)},m.setUserId=function(e){if("string"==typeof e||null===e)return I("enduser.id",e,"setUserId",!0);(0,d.R)(41,typeof e)},m.setApplicationVersion=function(e){if("string"==typeof e||null===e)return I("application.version",e,"setApplicationVersion",!1);(0,d.R)(42,typeof e)},m.start=()=>{try{(0,a.p)(f.xV,["API/start/called"],void 0,n.K7.metrics,w),w.emit("manual-start-all")}catch(e){(0,d.R)(23,e)}},m[p.G4.RECORD]=function(){(0,a.p)(f.xV,["API/recordReplay/called"],void 0,n.K7.metrics,w),(0,a.p)(p.G4.RECORD,[],void 0,n.K7.sessionReplay,w)},m[p.G4.PAUSE]=function(){(0,a.p)(f.xV,["API/pauseReplay/called"],void 0,n.K7.metrics,w),(0,a.p)(p.G4.PAUSE,[],void 0,n.K7.sessionReplay,w)},m.interaction=function(e){return(new T).get("object"==typeof e?e:{})};const j=T.prototype={createTracer:function(e,t){var r={},i=this,o="function"==typeof t;return(0,a.p)(f.xV,["API/createTracer/called"],void 0,n.K7.metrics,w),g||(0,a.p)(N+"tracer",[(0,v.t)(),e,r],i,n.K7.spa,w),function(){if(R.emit((o?"":"no-")+"fn-start",[(0,v.t)(),i,o],r),o)try{return t.apply(this,arguments)}catch(e){const t="string"==typeof e?new Error(e):e;throw R.emit("fn-err",[arguments,this,t],r),t}finally{R.emit("fn-end",[(0,v.t)()],r)}}}};function S(t,r,i,o){return function(){return(0,a.p)(f.xV,["API/"+r+"/called"],void 0,n.K7.metrics,w),(0,_.W)({agentIdentifier:e,loaded:!!x.B?.[e],type:"data",name:"api",feature:t+r,data:{notSpa:i,bufferGroup:o}}),o&&(0,a.p)(t+r,[i?(0,v.t)():performance.now(),...arguments],i?null:this,o,w),i?void 0:this}}function O(){r.e(296).then(r.bind(r,8778)).then((({setAPI:t})=>{t(e),(0,c.Ze)(e,"api")})).catch((e=>{(0,d.R)(27,e),w.abort()}))}return["actionText","setName","setAttribute","save","ignore","onEnd","getContext","end","get"].forEach((e=>{j[e]=S(N,e,void 0,g?n.K7.softNav:n.K7.spa)})),m.setCurrentRouteName=g?S(N,"routeName",void 0,n.K7.softNav):S(A,"routeName",!0,n.K7.spa),m.noticeError=function(t,r){"string"==typeof t&&(t=new Error(t)),(0,a.p)(f.xV,["API/noticeError/called"],void 0,n.K7.metrics,w),(0,a.p)("err",[t,(0,v.t)(),!1,r,!!k[e]],void 0,n.K7.jserrors,w)},l.RI?(0,u.GG)((()=>O()),!0):O(),m}var T=r(5217),j=r(8122);const S={accountID:void 0,trustKey:void 0,agentID:void 0,licenseKey:void 0,applicationID:void 0,xpid:void 0},O={};const P=e=>{const t=e.startsWith("http");e+="/",r.p=t?e:"https://"+e};let K=!1;function V(e,t={},r,n){let{init:a,info:c,loader_config:u,runtime:d={},exposed:f=!0}=t;d.loaderType=r;const p=(0,g.pV)();c||(a=p.init,c=p.info,u=p.loader_config),(0,T.xN)(e.agentIdentifier,a||{}),function(e,t){if(!e)throw new Error("All loader-config objects require an agent identifier!");O[e]=(0,j.a)(t,S);const r=(0,g.nY)(e);r&&(r.loader_config=O[e])}(e.agentIdentifier,u||{}),c.jsAttributes??={},l.bv&&(c.jsAttributes.isWorker=!0),(0,i.x1)(e.agentIdentifier,c);const m=(0,T.D0)(e.agentIdentifier),h=[c.beacon,c.errorBeacon];K||(m.proxy.assets&&(P(m.proxy.assets),h.push(m.proxy.assets)),m.proxy.beacon&&h.push(m.proxy.beacon),N(),(0,g.US)("activatedFeatures",x.B),e.runSoftNavOverSpa&&=!0===m.soft_navigations.enabled&&m.feature_flags.includes("soft_nav")),d.denyList=[...m.ajax.deny_list||[],...m.ajax.block_internal?h:[]],d.ptid=e.agentIdentifier,(0,o.V)(e.agentIdentifier,d),e.ee=s.ee.get(e.agentIdentifier),void 0===e.api&&(e.api=I(e.agentIdentifier,n,e.runSoftNavOverSpa)),void 0===e.exposed&&(e.exposed=f),K||(0,_.W)({agentIdentifier:e.agentIdentifier,loaded:!!x.B?.[e.agentIdentifier],type:"lifecycle",name:"initialize",feature:void 0,data:{init:m,info:c,loader_config:u,runtime:d}}),K=!0}},8374:(e,t,r)=>{r.nc=(()=>{try{return document?.currentScript?.nonce}catch(e){}return""})()},860:(e,t,r)=>{"use strict";r.d(t,{$J:()=>l,K7:()=>c,P3:()=>u,XX:()=>i,Yy:()=>s,df:()=>o,qY:()=>n,v4:()=>a});const n="events",i="jserrors",o="browser/blobs",a="rum",s="browser/logs",c={ajax:"ajax",genericEvents:"generic_events",jserrors:i,logging:"logging",metrics:"metrics",pageAction:"page_action",pageViewEvent:"page_view_event",pageViewTiming:"page_view_timing",sessionReplay:"session_replay",sessionTrace:"session_trace",softNav:"soft_navigations",spa:"spa"},u={[c.pageViewEvent]:1,[c.pageViewTiming]:2,[c.metrics]:3,[c.jserrors]:4,[c.spa]:5,[c.ajax]:6,[c.sessionTrace]:7,[c.softNav]:8,[c.sessionReplay]:9,[c.logging]:10,[c.genericEvents]:11},l={[c.pageViewEvent]:a,[c.pageViewTiming]:n,[c.ajax]:n,[c.spa]:n,[c.softNav]:n,[c.metrics]:i,[c.jserrors]:i,[c.sessionTrace]:o,[c.sessionReplay]:o,[c.logging]:s,[c.genericEvents]:"ins"}}},n={};function i(e){var t=n[e];if(void 0!==t)return t.exports;var o=n[e]={exports:{}};return r[e](o,o.exports,i),o.exports}i.m=r,i.d=(e,t)=>{for(var r in t)i.o(t,r)&&!i.o(e,r)&&Object.defineProperty(e,r,{enumerable:!0,get:t[r]})},i.f={},i.e=e=>Promise.all(Object.keys(i.f).reduce(((t,r)=>(i.f[r](e,t),t)),[])),i.u=e=>"nr-rum-1.285.0.min.js",i.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),e={},t="NRBA-1.285.0.PROD:",i.l=(r,n,o,a)=>{if(e[r])e[r].push(n);else{var s,c;if(void 0!==o)for(var u=document.getElementsByTagName("script"),l=0;l<u.length;l++){var d=u[l];if(d.getAttribute("src")==r||d.getAttribute("data-webpack")==t+o){s=d;break}}if(!s){c=!0;var f={296:"sha512-Aa+vt/G+VUnXF5imJD27xfBbG00pJRbxEVq24dgn/KfPYsDLKETEMkS7ezrIti3e/7t6va9a0PBrFlxSB0FCeA=="};(s=document.createElement("script")).charset="utf-8",s.timeout=120,i.nc&&s.setAttribute("nonce",i.nc),s.setAttribute("data-webpack",t+o),s.src=r,0!==s.src.indexOf(window.location.origin+"/")&&(s.crossOrigin="anonymous"),f[a]&&(s.integrity=f[a])}e[r]=[n];var g=(t,n)=>{s.onerror=s.onload=null,clearTimeout(p);var i=e[r];if(delete e[r],s.parentNode&&s.parentNode.removeChild(s),i&&i.forEach((e=>e(n))),t)return t(n)},p=setTimeout(g.bind(null,void 0,{type:"timeout",target:s}),12e4);s.onerror=g.bind(null,s.onerror),s.onload=g.bind(null,s.onload),c&&document.head.appendChild(s)}},i.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.p="https://js-agent.newrelic.com/",(()=>{var e={374:0,840:0};i.f.j=(t,r)=>{var n=i.o(e,t)?e[t]:void 0;if(0!==n)if(n)r.push(n[2]);else{var o=new Promise(((r,i)=>n=e[t]=[r,i]));r.push(n[2]=o);var a=i.p+i.u(t),s=new Error;i.l(a,(r=>{if(i.o(e,t)&&(0!==(n=e[t])&&(e[t]=void 0),n)){var o=r&&("load"===r.type?"missing":r.type),a=r&&r.target&&r.target.src;s.message="Loading chunk "+t+" failed.\n("+o+": "+a+")",s.name="ChunkLoadError",s.type=o,s.request=a,n[1](s)}}),"chunk-"+t,t)}};var t=(t,r)=>{var n,o,[a,s,c]=r,u=0;if(a.some((t=>0!==e[t]))){for(n in s)i.o(s,n)&&(i.m[n]=s[n]);if(c)c(i)}for(t&&t(r);u<a.length;u++)o=a[u],i.o(e,o)&&e[o]&&e[o][0](),e[o]=0},r=self["webpackChunk:NRBA-1.285.0.PROD"]=self["webpackChunk:NRBA-1.285.0.PROD"]||[];r.forEach(t.bind(null,0)),r.push=t.bind(null,r.push.bind(r))})(),(()=>{"use strict";i(8374);var e=i(944),t=i(6344),r=i(9566);class n{agentIdentifier;constructor(){this.agentIdentifier=(0,r.LA)(16)}#e(t,...r){if("function"==typeof this.api?.[t])return this.api[t](...r);(0,e.R)(35,t)}addPageAction(e,t){return this.#e("addPageAction",e,t)}recordCustomEvent(e,t){return this.#e("recordCustomEvent",e,t)}setPageViewName(e,t){return this.#e("setPageViewName",e,t)}setCustomAttribute(e,t,r){return this.#e("setCustomAttribute",e,t,r)}noticeError(e,t){return this.#e("noticeError",e,t)}setUserId(e){return this.#e("setUserId",e)}setApplicationVersion(e){return this.#e("setApplicationVersion",e)}setErrorHandler(e){return this.#e("setErrorHandler",e)}addRelease(e,t){return this.#e("addRelease",e,t)}log(e,t){return this.#e("log",e,t)}}class o extends n{#e(t,...r){if("function"==typeof this.api?.[t])return this.api[t](...r);(0,e.R)(35,t)}start(){return this.#e("start")}finished(e){return this.#e("finished",e)}recordReplay(){return this.#e(t.G4.RECORD)}pauseReplay(){return this.#e(t.G4.PAUSE)}addToTrace(e){return this.#e("addToTrace",e)}setCurrentRouteName(e){return this.#e("setCurrentRouteName",e)}interaction(){return this.#e("interaction")}wrapLogger(e,t,r){return this.#e("wrapLogger",e,t,r)}}var a=i(860),s=i(5217);const c=Object.values(a.K7);function u(e){const t={};return c.forEach((r=>{t[r]=function(e,t){return!0===(0,s.gD)(t,"".concat(e,".enabled"))}(r,e)})),t}var l=i(7603);var d=i(1687),f=i(4234),g=i(5289),p=i(6154),m=i(384);const h=e=>p.RI&&!0===(0,s.gD)(e,"privacy.cookies_enabled");function v(e){return!!(0,m.dV)().o.MO&&h(e)&&!0===(0,s.gD)(e,"session_trace.enabled")}var b=i(6389);class y extends f.W{constructor(e,t,r=!0){super(e.agentIdentifier,t),this.auto=r,this.abortHandler=void 0,this.featAggregate=void 0,this.onAggregateImported=void 0,!1===e.init[this.featureName].autoStart&&(this.auto=!1),this.auto?(0,d.Ak)(e.agentIdentifier,t):this.ee.on("manual-start-all",(0,b.J)((()=>{(0,d.Ak)(e.agentIdentifier,this.featureName),this.auto=!0,this.importAggregator(e)})))}importAggregator(t,r={}){if(this.featAggregate||!this.auto)return;let n;this.onAggregateImported=new Promise((e=>{n=e}));const o=async()=>{let o;try{if(h(this.agentIdentifier)){const{setupAgentSession:e}=await i.e(296).then(i.bind(i,3861));o=e(t)}}catch(t){(0,e.R)(20,t),this.ee.emit("internal-error",[t]),this.featureName===a.K7.sessionReplay&&this.abortHandler?.()}try{if(!this.#t(this.featureName,o))return(0,d.Ze)(this.agentIdentifier,this.featureName),void n(!1);const{lazyFeatureLoader:e}=await i.e(296).then(i.bind(i,6103)),{Aggregate:a}=await e(this.featureName,"aggregate");this.featAggregate=new a(t,r),t.runtime.harvester.initializedAggregates.push(this.featAggregate),n(!0)}catch(t){(0,e.R)(34,t),this.abortHandler?.(),(0,d.Ze)(this.agentIdentifier,this.featureName,!0),n(!1),this.ee&&this.ee.abort()}};p.RI?(0,g.GG)((()=>o()),!0):o()}#t(e,t){switch(e){case a.K7.sessionReplay:return v(this.agentIdentifier)&&!!t;case a.K7.sessionTrace:return!!t;default:return!0}}}var w=i(6630);class R extends y{static featureName=w.T;constructor(e,t=!0){super(e,w.T,t),this.importAggregator(e)}}var A=i(9908),E=i(2843),_=i(3878),x=i(782),N=i(1863);class k extends y{static featureName=x.T;constructor(e,t=!0){super(e,x.T,t),p.RI&&((0,E.u)((()=>(0,A.p)("docHidden",[(0,N.t)()],void 0,x.T,this.ee)),!0),(0,_.sp)("pagehide",(()=>(0,A.p)("winPagehide",[(0,N.t)()],void 0,x.T,this.ee))),this.importAggregator(e))}}var I=i(8154);class T extends y{static featureName=I.TZ;constructor(e,t=!0){super(e,I.TZ,t),p.RI&&document.addEventListener("securitypolicyviolation",(e=>{(0,A.p)(I.xV,["Generic/CSPViolation/Detected"],void 0,this.featureName,this.ee)})),this.importAggregator(e)}}new class extends o{constructor(t){super(),p.gm?(this.features={},(0,m.bQ)(this.agentIdentifier,this),this.desiredFeatures=new Set(t.features||[]),this.desiredFeatures.add(R),this.runSoftNavOverSpa=[...this.desiredFeatures].some((e=>e.featureName===a.K7.softNav)),(0,l.j)(this,t,t.loaderType||"agent"),this.run()):(0,e.R)(21)}get config(){return{info:this.info,init:this.init,loader_config:this.loader_config,runtime:this.runtime}}run(){try{const t=u(this.agentIdentifier),r=[...this.desiredFeatures];r.sort(((e,t)=>a.P3[e.featureName]-a.P3[t.featureName])),r.forEach((r=>{if(!t[r.featureName]&&r.featureName!==a.K7.pageViewEvent)return;if(this.runSoftNavOverSpa&&r.featureName===a.K7.spa)return;if(!this.runSoftNavOverSpa&&r.featureName===a.K7.softNav)return;const n=function(e){switch(e){case a.K7.ajax:return[a.K7.jserrors];case a.K7.sessionTrace:return[a.K7.ajax,a.K7.pageViewEvent];case a.K7.sessionReplay:return[a.K7.sessionTrace];case a.K7.pageViewTiming:return[a.K7.pageViewEvent];default:return[]}}(r.featureName).filter((e=>!(e in this.features)));n.length>0&&(0,e.R)(36,{targetFeature:r.featureName,missingDependencies:n}),this.features[r.featureName]=new r(this)}))}catch(t){(0,e.R)(22,t);for(const e in this.features)this.features[e].abortHandler?.();const r=(0,m.Zm)();delete r.initializedAgents[this.agentIdentifier]?.api,delete r.initializedAgents[this.agentIdentifier]?.features,delete this.sharedAggregator;return r.ee.get(this.agentIdentifier).abort(),!1}}}({features:[R,k,T],loaderType:"lite"})})()})();</script>
+    <title>【全体的に状態が悪い】高崎店【現状品】u3-25 SONY ソニー MDR-CD900ST 密閉型 スタジオモニター ヘッドホン ブラック 箱無しの落札情報詳細 - Yahoo!オークション落札価格検索 オークフリー</title>
+    <meta name="description" content="高崎店【現状品】u3-25 SONY ソニー MDR-CD900ST 密閉型 スタジオモニター ヘッドホン ブラック 箱無しの落札情報詳細（Yahoo!オークションの家電、AV、カメラカテゴリで2025年3月17日 22時3分に落札） - オークション情報無料検索 オークフリー" />
+    <meta name="keywords" content="高崎店【現状品】u3-25 SONY ソニー MDR-CD900ST 密閉型 スタジオモニター ヘッドホン ブラック 箱無し,ソニー,ヤフオク,落札価格,無料" />
+    <link rel="preload" as="image" href="https://img.aucfree.com/u1176482381.1.jpg" crossorigin="anonymous" />
+    <script type="application/javascript" src="//anymind360.com/js/17581/ats.js"></script>
+    <link rel="stylesheet" media="all" href="/assets/item_show-02c2ff14e6bb8374b9c6ab4fef38bd5a.css" /><link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-9d5cd9b21fb298646a5f9af9e2fce2eb.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@aucfree" />
+    <meta property="og:title" content="【全体的に状態が悪い】高崎店【現状品】u3-25 SONY ソニー MDR-CD900ST 密閉型 スタジオモニター ヘッドホン ブラック 箱無しの落札情報詳細 - Yahoo!オークション落札価格検索 オークフリー" />
+    <meta property="og:url" content="https://aucfree.com/items/u1176482381" />
+    <meta property="og:image" content="https://img.aucfree.com/u1176482381.1.jpg" />
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="https://aucfree.com/m/items/u1176482381" />
+    <!--Global site tag (gtag.js) - Google Analytics-->
+    <script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-68767162-1"></script>
+    <meta name="thumbnail" content="https://img.aucfree.com/u1176482381.1.jpg" />
+    <meta name="author" content="Aucfree" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-68767162-1', {
+        'custom_map': {'dimension2': 'auction_category'},
+        'auction_category': "Electronics"
+      });
+    </script>
+    <script>
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "gnre9aymtc");
+    </script>
+    <script data-sdk="l/1.1.8" data-cfasync="false" src="https://html-load.com/loader.min.js" charset="UTF-8"></script><script>(function(){function t(o,e){const r=n();return(t=function(t,n){return r[t-=440]})(o,e)}function n(){const t=["check","recovery","setItem","searchParams","remove","iframe","currentScript","onLine","concat","error","Failed to load script: ","location","loader_light","appendChild","name",'/loader.min.js"]',"7J6Y66q765CcIOyVoOuTnOu4lOuhnSDtlYTthLDroZwg7Ju57Y6Y7J207KeAIOuhnOuUqeyXkCDsi6TtjKjtlZjsmIDsirXri4jri6QuIOyVoOuTnOu4lOuhneydhCDruYTtmZzshLHtmZTtlZwg7ZuEIOybueyCrOydtO2KuOulvCDsnbTsmqntlbTso7zshLjsmpQuICjsnpDshLjtlZwg64K07Jqp7J2AICftmZXsnbgnIOuyhO2KvOydhCDriIzrn6wg7ZmV7J247ZW07KO87IS47JqUKQ","reload","text","from","_fa_","getComputedStyle","style","connection","as_","https://report.error-report.com/modal?eventId=&error=Vml0YWwgQVBJIGJsb2NrZWQ%3D&domain=","message","write","https://error-report.com/report","Cannot find currentScript","display","https://","setAttribute","data","hostname","toLowerCase","removeEventListener","href","startsWith","1332630TkEQDZ","height","148312mfNBTW","209209TUsoOs","querySelector","forEach","VGhpcyBwYWdlIGNvdWxkIG5vdCBiZSBsb2FkZWQgcHJvcGVybHkgZHVlIHRvIGluY29ycmVjdCAvIGJhZCBmaWx0ZXJpbmcgcnVsZShzKSBvZiBhZGJsb2NrZXJzIGluIHVzZS4gUGxlYXNlIGRpc2FibGUgYWxsIGFkYmxvY2tlcnMgdG8gY29udGludWUgdXNpbmcgdGhlIHdlYnNpdGUuIChjbGljayBPSyBpZiB5b3UnZCBsaWtlIHRvIGxlYXJuIG1vcmUp","https://report.error-report.com/modal?eventId=&error=","width: 100vw; height: 100vh; z-index: 2147483647; position: fixed; left: 0; top: 0;","split","title","querySelectorAll","value","addEventListener","Fallback Failed","/loader.min.js","attributes","close-error-report","as_index","144lKESSB","src","now","createElement",'script[src*="//',"POST","4555133YMnFmK","contains","loader-check","outerHTML","none","&domain=","&error=","type","textContent","as_modal_loaded","host","46120EDiLIv","append","20bcZcyB","documentElement","charCodeAt","link,style","Script not found","toString","map","544ZolxHH","language","url","2265699QbmNMS","width","btoa","last_bfa_at","&url=","https://report.error-report.com/modal?eventId=","240011EAoPnj","rtt","261idZnFL","getBoundingClientRect","localStorage","script","length"];return(n=function(){return t})()}(function(){const o=t,e=n();for(;;)try{if(676658===-parseInt(o(494))/1+-parseInt(o(440))/2+parseInt(o(488))/3+parseInt(o(485))/4*(parseInt(o(476))/5)+parseInt(o(459))/6*(-parseInt(o(443))/7)+parseInt(o(442))/8*(-parseInt(o(496))/9)+parseInt(o(478))/10*(parseInt(o(465))/11))break;e.push(e.shift())}catch(t){e.push(e.shift())}})(),(()=>{"use strict";const n=t,o=n=>{const o=t;let e=0;for(let t=0,r=n[o(500)];t<r;t++)e=(e<<5)-e+n[o(480)](t),e|=0;return e},e=class{static[n(501)](){const t=n;var e,r;let c=arguments[t(500)]>0&&void 0!==arguments[0]?arguments[0]:t(502),a=!(arguments[t(500)]>1&&void 0!==arguments[1])||arguments[1];const i=Date[t(461)](),s=i-i%864e5,l=s-864e5,u=s+864e5,d=t(525)+o(c+"_"+s),h=t(525)+o(c+"_"+l),m=t(525)+o(c+"_"+u);return d!==h&&d!==m&&h!==m&&!(null!==(e=null!==(r=window[d])&&void 0!==r?r:window[h])&&void 0!==e?e:window[m])&&(a&&(window[d]=!0,window[h]=!0,window[m]=!0),!0)}};function r(o,e){const r=n;try{window[r(498)][r(503)](window[r(512)][r(475)]+r(521)+btoa(r(491)),Date[r(461)]()[r(483)]())}catch(t){}try{!async function(n,o){const e=r;try{if(await async function(){const n=t;try{if(await async function(){const n=t;if(!navigator[n(508)])return!0;try{await fetch(location[n(538)])}catch(t){return!0}return!1}())return!0;try{if(navigator[n(524)][n(495)]>1e3)return!0}catch(t){}return!1}catch(t){return!1}}())return;const r=await async function(n){const o=t;try{const t=new URL(o(529));t[o(504)][o(477)](o(472),o(513)),t[o(504)][o(477)](o(450),""),t[o(504)][o(477)](o(527),n),t[o(504)][o(477)](o(487),location[o(538)]);const e=await fetch(t[o(538)],{method:o(464)});return await e[o(519)]()}catch(t){return o(510)}}(n);document[e(451)](e(481))[e(445)]((t=>{const n=e;t[n(505)](),t[n(473)]=""}));let a=!1;window[e(453)](e(527),(t=>{const n=e;n(474)===t[n(534)]&&(a=!0)}));const i=document[e(462)](e(506));i[e(460)]=e(493)[e(509)](r,e(471))[e(509)](btoa(n),e(470))[e(509)](o,e(492))[e(509)](btoa(location[e(538)])),i[e(533)](e(523),e(448)),document[e(479)][e(514)](i);const s=t=>{const n=e;n(457)===t[n(534)]&&(i[n(505)](),window[n(537)](n(527),s))};window[e(453)](e(527),s);const l=()=>{const t=e,n=i[t(497)]();return t(469)!==window[t(522)](i)[t(531)]&&0!==n[t(489)]&&0!==n[t(441)]};let u=!1;const d=setInterval((()=>{if(!document[e(466)](i))return clearInterval(d);l()||u||(clearInterval(d),u=!0,c(n,o))}),1e3);setTimeout((()=>{a||u||(u=!0,c(n,o))}),3e3)}catch(t){c(n,o)}}(o,e)}catch(t){c(o,e)}}function c(t,o){const e=n;try{const n=navigator[e(486)][e(536)]()[e(539)]("ko")?decodeURIComponent(escape(atob(e(517)))):atob(e(446));confirm(n)?location[e(538)]=e(447)[e(509)](btoa(t),e(470))[e(509)](o,e(492))[e(509)](btoa(location[e(538)])):location[e(518)]()}catch(t){location[e(538)]=e(526)[e(509)](o)}}(()=>{const t=n,o=n=>t(511)[t(509)](n);let c="";try{var a,i;null===(a=document[t(507)])||void 0===a||a[t(505)]();const n=null!==(i=function(){const n=t,o=n(458)+window[n(490)](window[n(512)][n(535)]);return window[o]}())&&void 0!==i?i:0;if(!e[t(501)](t(467),!1))return;const s="html-load.com,fb.html-load.com,content-loader.com,fb.content-loader.com"[t(449)](",");c=s[0];const l=document[t(444)](t(463)[t(509)](s[n],t(516)));if(!l)throw new Error(t(482));const u=Array[t(520)](l[t(456)])[t(484)]((n=>({name:n[t(515)],value:n[t(452)]})));if(n+1<s[t(500)])return function(n,o){const e=t,r=e(458)+window[e(490)](window[e(512)][e(535)]);window[r]=o}(0,n+1),void function(n,o){const e=t;var r;const c=document[e(462)](e(499));o[e(445)]((t=>{const n=e;let{name:o,value:r}=t;return c[n(533)](o,r)})),c[e(533)](e(460),e(532)[e(509)](n,e(455))),document[e(528)](c[e(468)]);const a=null===(r=document[e(507)])||void 0===r?void 0:r[e(468)];if(!a)throw new Error(e(530));document[e(528)](a)}(s[n+1],u);r(o(t(454)),c)}catch(n){try{n=n[t(483)]()}catch(t){}r(o(n),c)}})()})();})();</script><script async='async' src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
+  </head>
+  <body>
+    <div id="headerArea">
+      <div id="searchBox">
+        <h1 class="site_logo">
+          <a href="/"><img alt="aucfree" src="/assets/mylogo-f96445840a632d564f3d74b5720923a3.png" /></a>
+        </h1>
+        <h2 class="sitecopy">
+          全て無料で見られるオークション落札価格検索サイト
+        </h2>
+        <div id="formBlock" class="alias1">
+          <form id="searchForm" method="get" name="search" action="/search"><input type="hidden" name="o" value="t2" />
+            <div id="selectable">
+              <div id="search_box_form">
+                <select id="c_id" class="selectable2" name="c"><option value="">すべてのカテゴリ</option>
+                  <option value="23336">コンピュータ</option>
+                  <option value="23632">家電・AV・カメラ</option>
+                  <option value="21600">本・雑誌</option>
+                  <option value="22152">音楽</option>
+                  <option value="21964">映画・ビデオ</option>
+                  <option value="25464">おもちゃ・ゲーム</option>
+                  <option value="24242">ホビー・カルチャー</option>
+                  <option value="20000">アンティーク</option>
+                  <option value="20060">コミック・アニメグッズ</option>
+                  <option value="2084032594">タレントグッズ</option>
+                  <option value="23000">ファッション</option>
+                  <option value="23140">アクセサリー・時計</option>
+                  <option value="24202">キッズ・ベビー</option>
+                  <option value="42177">ビューティ・健康 </option>
+                  <option value="23976">食品・飲料</option>
+                  <option value="26318">自動車・バイク</option>
+                  <option value="24698">スポーツ・レジャー</option>
+                  <option value="22896">事務・店舗用品</option>
+                  <option value="2084060731">不動産</option>
+                  <option value="24198">住まい・インテリア</option>
+                  <option value="26086">花・園芸</option>
+                  <option value="2084055844">ペット・いきもの</option>
+                  <option value="2084043920">チケット・金券</option>
+                  <option value="2084217893">チャリティ</option>
+                  <option value="26084">その他</option></select><span class="selectAlt selectable2Val">すべてのカテゴリ</span>
+                <ul id="ulSelectList2" class="selectList" style="display:none;">
+                  <li>
+                    <a class="selected" data-value="nodata" href="#">すべてのカテゴリ</a>
+                  </li>
+                  <li>
+                    <a data-value="23336" href="#">コンピュータ</a>
+                  </li>
+                  <li>
+                    <a data-value="23632" href="#">家電・AV・カメラ</a>
+                  </li>
+                  <li>
+                    <a data-value="21600" href="#">本・雑誌</a>
+                  </li>
+                  <li>
+                    <a data-value="22152" href="#">音楽</a>
+                  </li>
+                  <li>
+                    <a data-value="21964" href="#">映画・ビデオ</a>
+                  </li>
+                  <li>
+                    <a data-value="25464" href="#">おもちゃ・ゲーム</a>
+                  </li>
+                  <li>
+                    <a data-value="24242" href="#">ホビー・カルチャー</a>
+                  </li>
+                  <li>
+                    <a data-value="20000" href="#">アンティーク</a>
+                  </li>
+                  <li>
+                    <a data-value="20060" href="#">コミック・アニメグッズ</a>
+                  </li>
+                  <li>
+                    <a data-value="2084032594" href="#">タレントグッズ</a>
+                  </li>
+                  <li>
+                    <a data-value="23000" href="#">ファッション</a>
+                  </li>
+                  <li>
+                    <a data-value="23140" href="#">アクセサリー・時計</a>
+                  </li>
+                  <li>
+                    <a data-value="24202" href="#">キッズ・ベビー</a>
+                  </li>
+                  <li>
+                    <a data-value="42177" href="#">ビューティ・健康</a>
+                  </li>
+                  <li>
+                    <a data-value="23976" href="#">食品・飲料</a>
+                  </li>
+                  <li>
+                    <a data-value="26318" href="#">自動車・バイク</a>
+                  </li>
+                  <li>
+                    <a data-value="24698" href="#">スポーツ・レジャー</a>
+                  </li>
+                  <li>
+                    <a data-value="22896" href="#">事務・店舗用品</a>
+                  </li>
+                  <li>
+                    <a data-value="2084060731" href="#">不動産</a>
+                  </li>
+                  <li>
+                    <a data-value="24198" href="#">住まい・インテリア</a>
+                  </li>
+                  <li>
+                    <a data-value="26086" href="#">花・園芸</a>
+                  </li>
+                  <li>
+                    <a data-value="2084055844" href="#">ペット・いきもの</a>
+                  </li>
+                  <li>
+                    <a data-value="2084043920" href="#">チケット・金券</a>
+                  </li>
+                  <li>
+                    <a data-value="2084217893" href="#">チャリティ</a>
+                  </li>
+                  <li>
+                    <a data-value="26084" href="#">その他</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="searchFrame">
+              <input type="search" name="q" id="searchInput2" placeholder="キーワードを入力してください" maxlength="30" class="searchInput" /><button id="searchButton" class="searchButton" type="submit"><span>検索</span></button>
+            </div>
+            <div id="term_option">
+              <span>期間指定</span><label for="term_recent"><input type="radio" name="term" id="term_recent" value="recent" />最近30日</label><label for="term_3m"><input type="radio" name="term" id="term_3m" value="3m" />3ヶ月間</label><label for="term_6m"><input type="radio" name="term" id="term_6m" value="6m" />6ヶ月間</label><label for="term_1y"><input type="radio" name="term" id="term_1y" value="1y" />1年間</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="pcarticle_bb" style="width:100%; min-height:250px;"></div>
+    <div id="mainFrame">
+      <a name="top"></a>
+      <div id="item_tl_h1">
+        <h1>
+          高崎店【現状品】u3-25 SONY ソニー MDR-CD900ST 密閉型 スタジオモニター ヘッドホン ブラック 箱無し<span>の商品情報</span>
+        </h1>
+      </div>
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement":
+          [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item":
+              {
+                "@id": "https://aucfree.com/search?o=t2",
+                "name": "すべてのカテゴリ"
+              }
+            },{
+            "@type": "ListItem",
+            "position": 2,
+            "item":
+            {
+              "@id": "https://aucfree.com/search?c=23632&amp;o=t2",
+              "name": "家電、AV、カメラ"
+            }
+          },{
+            "@type": "ListItem",
+            "position": 3,
+            "item":
+            {
+              "@id": "https://aucfree.com/search?c=23764&amp;o=t2",
+              "name": "オーディオ機器"
+            }
+          },{
+            "@type": "ListItem",
+            "position": 4,
+            "item":
+            {
+              "@id": "https://aucfree.com/search?c=23804&amp;o=t2",
+              "name": "ヘッドフォン、イヤフォン"
+            }
+          },{
+            "@type": "ListItem",
+            "position": 5,
+            "item":
+            {
+              "@id": "https://aucfree.com/search?c=2084219565&amp;o=t2",
+              "name": "ヘッドフォン"
+            }
+          },{
+              "@type": "ListItem",
+              "position": 6,
+              "item":
+              {
+                "@id": "https://aucfree.com/search?c=2084219574&amp;o=t2",
+                "name": "ソニー"
+              }
+            }
+          ]
+        }
+      </script>
+      <div id="category_path">
+        <ul>
+          <li>
+            <a class="to_top" href="/">トップ</a>
+          </li>
+          <li>
+            <dl>
+              <dt>
+                Yahoo!オークション
+              </dt>
+              <dd>
+                <ul>
+                  <li>
+                    <a href="/search?c=23632&amp;o=t2">家電、AV、カメラ</a>
+                  </li>
+                  <li>
+                    <a href="/search?c=23764&amp;o=t2">オーディオ機器</a>
+                  </li>
+                  <li>
+                    <a href="/search?c=23804&amp;o=t2">ヘッドフォン、イヤフォン</a>
+                  </li>
+                  <li>
+                    <a href="/search?c=2084219565&amp;o=t2">ヘッドフォン</a>
+                  </li>
+                  <li>
+                    <a href="/search?c=2084219574&amp;o=t2">ソニー</a>
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </li>
+        </ul>
+      </div>
+      <div id="FourM_video" style="min-height:300px;"></div>
+      <div id="main_contents">
+        <div id="item_details">
+          <div id="analysis_contents"><div class="analysis_inner">
+              <h2>
+                過去3ヶ月の「 <strong style="color: #050505;">ヘッドホン MDR-CD900ST</strong> 」の統計データ情報
+              </h2>
+              <p>
+                「ヘッドホン MDR-CD900ST」 に関する落札商品は全部で 255 件あります。
+              </p>
+              <dl>
+                <span class="analysis_board">
+                  <dt>
+                    <h1>
+                      平均落札価格
+                    </h1>
+                  </dt>
+                  <dd>
+                    <h1>
+                      7,037 円
+                    </h1>
+                  </dd>
+                </span><span class="analysis_board" style="color:#ee5555">
+                  <dt>
+                    <h1>
+                      最高落札価格
+                    </h1>
+                  </dt>
+                  <dd>
+                    <h1>
+                      33,500 円
+                    </h1>
+                  </dd>
+                </span><span class="analysis_board" style="color:#5555ee">
+                  <dt>
+                    <h1>
+                      最低落札価格
+                    </h1>
+                  </dt>
+                  <dd>
+                    <h1>
+                      1 円
+                    </h1>
+                  </dd>
+                </span>
+              </dl>
+              <div class="btn_wrap">
+                <a id="analysis_more" href="#" onClick="gtag(&#39;event&#39;, &#39;open&#39;, {&#39;event_category&#39;: &#39;analysis&#39;});">もっと詳しいデータを見る ▼</a>
+              </div>
+              <div class="additional_analysis">
+                <p>
+                  ※ 下記の件数、または棒グラフをクリックする事で、価格帯を指定した検索が行えます。細かい仕様に関しては下記の更新情報をご参照下さい。<br /><a href="/info#7">分析機能について</a>
+                </p>
+                <script src="https://www.gstatic.com/charts/loader.js"></script>
+                <script>
+                  function drawChart1() {
+                    $.ajax({
+                      url: "https://aucfree.com/chart/u1176482381/2/3350",
+                      dataType: "json",
+                      success: function (json) {
+                        var g_data = google.visualization.arrayToDataTable(json);
+                        var view = new google.visualization.DataView(g_data);
+                        view.setColumns([0, 1, 2]);
+                  
+                        var options = {
+                          width: 950,
+                          height: 250,
+                          colors: ['#7CB5EC'],
+                          legend: {position: "none"},
+                          annotations: {
+                            alwaysOutside: true,
+                            textStyle: {color: '#333'}
+                          },
+                          hAxis: {title: "価格帯", titleTextStyle: {fontSize: 12, bold: true, italic: false}, textStyle: {fontSize: 10, bold: true}},
+                          vAxis: {title: "落札商品数", titleTextStyle: {fontSize: 12, bold: true, italic: false}}
+                        };
+                        var chart = new google.visualization.ColumnChart(document.getElementById("chart-1"));
+                  
+                        function selectHandler() {
+                          var selectedItem = chart.getSelection()[0];
+                          if (selectedItem) {
+                            var value = g_data.getValue(selectedItem.row, 3);
+                            window.open(value);
+                          }
+                        }
+                        google.visualization.events.addListener(chart, 'select', selectHandler);
+                  
+                        chart.draw(view, options);
+                      }
+                    })
+                  }
+                </script>
+                <div id="chart-1" style="width: 960px; height: 250px; margin:10px auto;"></div>
+                <p>
+                  対象オークション 「高崎店【現状品】u3-25 SONY ソニー MDR-CD900ST 密閉型 スタジオモニター ヘッドホン ブラック 箱無し」 は 「ヘッドホン MDR-CD900ST」 を含む落札商品の中で、全255件中およそ 120 番目に高額です。
+                </p>
+                <p style="margin-top:20px; font-size: 1.2em;">
+                  「ヘッドホン MDR-CD900ST」 を含んだ関連性が高いと思われる落札商品
+                </p>
+                <ul class="keyword_items">
+                  <li class="itemBlock">
+                    <div>
+                      <a href="/items/n1175567892"><img class="lozad" data-src="https://img.aucfree.com/n1175567892.1.jpg" alt="&amp;【売り切り】SONY モニターヘッドホン MDR-CD900ST スタジオ レコーディング DTM DAW 宅録 ダイナミックステレオヘッドホン ソニーの1番目の画像" src="" /></a>
+                    </div>
+                    <span class="itemPrice"><span>8,501</span>円</span>
+                    <p class="itemName">
+                      <a href="/items/n1175567892">&amp;【売り切り】SONY モニターヘッドホン MDR-CD900ST スタジオ レコーディング ...</a>
+                    </p>
+                  </li>
+                  <li class="itemBlock">
+                    <div>
+                      <a href="/items/x1174156839"><img class="lozad" data-src="https://img.aucfree.com/x1174156839.1.jpg" alt="f146*80【現状品】f146-2502-817 SONY　MDR-CD900ST ソニー　ヘッドホンの1番目の画像" src="" /></a>
+                    </div>
+                    <span class="itemPrice"><span>7,140</span>円</span>
+                    <p class="itemName">
+                      <a href="/items/x1174156839">f146*80【現状品】f146-2502-817 SONY　MDR-CD900ST ソニー　...</a>
+                    </p>
+                  </li>
+                  <li class="itemBlock">
+                    <div>
+                      <a href="/items/v1166235176"><img class="lozad" data-src="https://img.aucfree.com/v1166235176.1.jpg" alt="⑧　ソニー SONY　スタジオモニターヘッドホン MDR-CD900ST 動作未確認　箱痛み品の1番目の画像" src="" /></a>
+                    </div>
+                    <span class="itemPrice"><span>6,500</span>円</span>
+                    <p class="itemName">
+                      <a href="/items/v1166235176">⑧　ソニー SONY　スタジオモニターヘッドホン MDR-CD900ST 動作未確認　箱痛み品</a>
+                    </p>
+                  </li>
+                  <li class="itemBlock">
+                    <div>
+                      <a href="/items/t1170254762"><img class="lozad" data-src="https://img.aucfree.com/t1170254762.1.jpg" alt="(Z-4419)SONY ポータブルカセットプレーヤー TPS-L2 ヘッドホン MDR-CD900ST 動作未確認 現状渡しの1番目の画像" src="" /></a>
+                    </div>
+                    <span class="itemPrice"><span>24,100</span>円</span>
+                    <p class="itemName">
+                      <a href="/items/t1170254762">(Z-4419)SONY ポータブルカセットプレーヤー TPS-L2 ヘッドホン MDR-CD...</a>
+                    </p>
+                  </li>
+                  <li class="itemBlock">
+                    <div>
+                      <a href="/items/r1169022436"><img class="lozad" data-src="https://img.aucfree.com/r1169022436.1.jpg" alt="SONY 有線 密閉型スタジオモニターヘッドホン 黒 MDR-CD900ST ソニーの1番目の画像" src="" /></a>
+                    </div>
+                    <span class="itemPrice"><span>7,699</span>円</span>
+                    <p class="itemName">
+                      <a href="/items/r1169022436">SONY 有線 密閉型スタジオモニターヘッドホン 黒 MDR-CD900ST ソニー</a>
+                    </p>
+                  </li>
+                </ul>
+                <p style="font-size: 1.2em;">
+                  <a href="/search?o=t2&amp;q=%E3%83%98%E3%83%83%E3%83%89%E3%83%9B%E3%83%B3+MDR-CD900ST">「ヘッドホン MDR-CD900ST」 に関する落札商品をもっと見る</a>
+                </p>
+              </div>
+            </div>
+            <div class="additional_analysis analysis_inner">
+              <h2>
+                過去3ヶ月の「 <strong style="color: #050505;">MDR-CD900ST</strong> 」の統計データ情報
+              </h2>
+              <p>
+                「MDR-CD900ST」 に関する落札商品は全部で 327 件あります。
+              </p>
+              <dl>
+                <span class="analysis_board">
+                  <dt>
+                    <h1>
+                      平均落札価格
+                    </h1>
+                  </dt>
+                  <dd>
+                    <h1>
+                      7,125 円
+                    </h1>
+                  </dd>
+                </span><span class="analysis_board" style="color:#ee5555">
+                  <dt>
+                    <h1>
+                      最高落札価格
+                    </h1>
+                  </dt>
+                  <dd>
+                    <h1>
+                      33,500 円
+                    </h1>
+                  </dd>
+                </span><span class="analysis_board" style="color:#5555ee">
+                  <dt>
+                    <h1>
+                      最低落札価格
+                    </h1>
+                  </dt>
+                  <dd>
+                    <h1>
+                      1 円
+                    </h1>
+                  </dd>
+                </span>
+              </dl>
+              <p>
+                ※ 下記の件数、または棒グラフをクリックする事で、価格帯を指定した検索が行えます。細かい仕様に関しては下記の更新情報をご参照下さい。<br /><a href="/info#7">分析機能について</a>
+              </p>
+              <script>
+                function drawChart2() {
+                  $.ajax({
+                    url: "https://aucfree.com/chart/u1176482381/1/3350",
+                    dataType: "json",
+                    success: function (json) {
+                      var g_data = google.visualization.arrayToDataTable(json);
+                      var view = new google.visualization.DataView(g_data);
+                      view.setColumns([0, 1, 2]);
+                
+                      var options = {
+                        width: 950,
+                        height: 250,
+                        colors: ['#7CB5EC'],
+                        legend: {position: "none"},
+                        annotations: {
+                          alwaysOutside: true,
+                          textStyle: {color: '#333'}
+                        },
+                        hAxis: {title: "価格帯", titleTextStyle: {fontSize: 12, bold: true, italic: false}, textStyle: {fontSize: 10, bold: true}},
+                        vAxis: {title: "落札商品数", titleTextStyle: {fontSize: 12, bold: true, italic: false}}
+                      };
+                      var chart = new google.visualization.ColumnChart(document.getElementById("chart-2"));
+                
+                      function selectHandler() {
+                        var selectedItem = chart.getSelection()[0];
+                        if (selectedItem) {
+                          var value = g_data.getValue(selectedItem.row, 3);
+                          window.open(value);
+                        }
+                      }
+                      google.visualization.events.addListener(chart, 'select', selectHandler);
+                
+                      chart.draw(view, options);
+                    }
+                  })
+                }
+              </script>
+              <div id="chart-2" style="width: 960px; height: 250px; margin:10px auto;"></div>
+              <p>
+                対象オークション 「高崎店【現状品】u3-25 SONY ソニー MDR-CD900ST 密閉型 スタジオモニター ヘッドホン ブラック 箱無し」 は 「MDR-CD900ST」 を含む落札商品の中で、全327件中およそ 150 番目に高額です。
+              </p>
+              <p style="margin-top:20px; font-size: 1.2em;">
+                「MDR-CD900ST」 を含んだ関連性が高いと思われる落札商品
+              </p>
+              <ul class="keyword_items">
+                <li class="itemBlock">
+                  <div>
+                    <a href="/items/d1173018916"><img class="lozad" data-src="https://img.aucfree.com/d1173018916.1.jpg" alt="MDR-CD900ST 新品未使用 SONY ソニー スタジオ用モニターヘッドフォンの1番目の画像" src="" /></a>
+                  </div>
+                  <span class="itemPrice"><span>12,240</span>円</span>
+                  <p class="itemName">
+                    <a href="/items/d1173018916">MDR-CD900ST 新品未使用 SONY ソニー スタジオ用モニターヘッドフォン</a>
+                  </p>
+                </li>
+                <li class="itemBlock">
+                  <div>
+                    <a href="/items/w1171818589"><img class="lozad" data-src="https://img.aucfree.com/w1171818589.1.jpg" alt="MDR-CD900ST 4極バランス対応 ケーブル着脱仕様 コード2種類付き SONY ソニー スタジオヘッドフォンの1番目の画像" src="" /></a>
+                  </div>
+                  <span class="itemPrice"><span>19,000</span>円</span>
+                  <p class="itemName">
+                    <a href="/items/w1171818589">MDR-CD900ST 4極バランス対応 ケーブル着脱仕様 コード2種類付き SONY ソニー...</a>
+                  </p>
+                </li>
+                <li class="itemBlock">
+                  <div>
+                    <a href="/items/f1171830266"><img class="lozad" data-src="https://img.aucfree.com/f1171830266.1.jpg" alt="MDR-CD900ST 新品未使用 SONY ソニー スタジオ用モニターヘッドフォンの1番目の画像" src="" /></a>
+                  </div>
+                  <span class="itemPrice"><span>12,500</span>円</span>
+                  <p class="itemName">
+                    <a href="/items/f1171830266">MDR-CD900ST 新品未使用 SONY ソニー スタジオ用モニターヘッドフォン</a>
+                  </p>
+                </li>
+                <li class="itemBlock">
+                  <div>
+                    <a href="/items/n1175567892"><img class="lozad" data-src="https://img.aucfree.com/n1175567892.1.jpg" alt="&amp;【売り切り】SONY モニターヘッドホン MDR-CD900ST スタジオ レコーディング DTM DAW 宅録 ダイナミックステレオヘッドホン ソニーの1番目の画像" src="" /></a>
+                  </div>
+                  <span class="itemPrice"><span>8,501</span>円</span>
+                  <p class="itemName">
+                    <a href="/items/n1175567892">&amp;【売り切り】SONY モニターヘッドホン MDR-CD900ST スタジオ レコーディング ...</a>
+                  </p>
+                </li>
+                <li class="itemBlock">
+                  <div>
+                    <a href="/items/x1174156839"><img class="lozad" data-src="https://img.aucfree.com/x1174156839.1.jpg" alt="f146*80【現状品】f146-2502-817 SONY　MDR-CD900ST ソニー　ヘッドホンの1番目の画像" src="" /></a>
+                  </div>
+                  <span class="itemPrice"><span>7,140</span>円</span>
+                  <p class="itemName">
+                    <a href="/items/x1174156839">f146*80【現状品】f146-2502-817 SONY　MDR-CD900ST ソニー　...</a>
+                  </p>
+                </li>
+              </ul>
+              <p style="font-size: 1.2em;">
+                <a href="/search?o=t2&amp;q=MDR-CD900ST">「MDR-CD900ST」 に関する落札商品をもっと見る</a>
+              </p>
+              <div class="btn_wrap">
+                <a id="analysis_close" href="#">閉じる ▲</a>
+              </div>
+            </div>
+          </div>
+          <div id="item_info_box">
+            <h2 class="tab_trg_block">
+              高崎店【現状品】u3-25 SONY ソニー MDR-CD900ST 密閉型 スタジオモニター ヘッドホン ブラック 箱無し&nbsp;の落札情報
+            </h2>
+            <div class="flex">
+              <img alt="高崎店【現状品】u3-25 SONY ソニー MDR-CD900ST 密閉型 スタジオモニター ヘッドホン ブラック 箱無しの1番目の画像" id="thumbnail_image" class="item_thumbnail" onerror="this.src=&#39;/assets/noimage-2c9821003ce5a10a9d709701aa1818e9.png&#39;; this.alt=&#39;No Image&#39;; this.removeAttribute(&#39;onerror&#39;)" onload="this.removeAttribute(&#39;onerror&#39;); this.removeAttribute(&#39;onload&#39;)" src="https://img.aucfree.com/u1176482381.1.jpg" />
+              <ul class="info_frame">
+                <li class="cf">
+                  <dl class="item_price">
+                    <dt>
+                      落札価格：
+                    </dt>
+                    <dd class="bid_price">
+                      <span>7,150</span>円
+                    </dd>
+                  </dl>
+                  <dl class="bid_number">
+                    <dt style="width:21%">
+                      入札件数：
+                    </dt>
+                    <dd>
+                      <span>15</span>（<a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3601076&amp;pid=887644549&amp;vc_url=https%3A%2F%2Fauctions.yahoo.co.jp%2Fjp%2Fshow%2Fbid_hist%3FaID%3Du1176482381" rel="nofollow" target="_blank" onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;yauc&#39;, &#39;event_label&#39;: &#39;pc_item_history&#39;});">入札履歴<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3601076&amp;pid=887644549" height="1" width="0" border="0" style="display:none;" /></a>）
+                    </dd>
+                  </dl>
+                </li>
+                <li class="cf">
+                  <dl class="market_place yahoo">
+                    <dt>
+                      サイト
+                    </dt>
+                    <dd>
+                      <span><a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3601076&amp;pid=887644488" target="_blank" rel="nofollow" onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;:&#39;pc_item_site&#39;,&#39;event_label&#39;:&#39;yauc&#39;});">Yahoo!オークション<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3601076&amp;pid=887644488" height="1" width="0" border="0" style="display:none;" /></a></span>
+                    </dd>
+                  </dl>
+                  <dl class="rem_time">
+                    <dt>
+                      残り時間
+                    </dt>
+                    <dd>
+                      終了
+                    </dd>
+                  </dl>
+                </li>
+                <li class="cf">
+                  <dl class="start_price">
+                    <dt class="dt01">
+                      開始価格
+                    </dt>
+                    <dd class="dd01">
+                      1,000円
+                    </dd>
+                  </dl>
+                  <dl class="bid_unit">
+                    <dt>
+                      入札単位
+                    </dt>
+                    <dd>
+                      250円
+                    </dd>
+                  </dl>
+                </li>
+                <li class="cf">
+                  <dl class="item_number">
+                    <dt>
+                      数量
+                    </dt>
+                    <dd>
+                      1個
+                    </dd>
+                  </dl>
+                  <dl class="item_state">
+                    <dt>
+                      商品状態
+                    </dt>
+                    <dd>
+                      全体的に状態が悪い
+                    </dd>
+                  </dl>
+                </li>
+                <li class="cf">
+                  <dl class="start_time">
+                    <dt>
+                      開始日時
+                    </dt>
+                    <dd>
+                      2025年3月10日 16時27分
+                    </dd>
+                  </dl>
+                  <dl class="start_time">
+                    <dt>
+                      終了日時
+                    </dt>
+                    <dd>
+                      2025年3月17日 22時3分
+                    </dd>
+                  </dl>
+                </li>
+                <li class="cf">
+                  <dl class="auction_id">
+                    <dt>
+                      オークションID
+                    </dt>
+                    <dd>
+                      u1176482381<span> （<a target="_blank" href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3601076&amp;pid=887678096&amp;vc_url=https%3A%2F%2Fpage.auctions.yahoo.co.jp%2Fjp%2Fauction%2Fu1176482381" rel="nofollow" onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;yauc&#39;, &#39;event_label&#39;: &#39;pc_item_id&#39;});">この商品をYahoo!オークションで見る<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3601076&amp;pid=887678096" height="1" width="0" border="0" style="display:none;" /></a>）</span>
+                    </dd>
+                  </dl>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div id="item_keyword_search">
+            <h2 class="item_lead">
+              <span>■</span>「ヘッドホン MDR-CD900ST」 を検索
+            </h2>
+            <ul class="shopping_links">
+              <a class="shopping_link aucfree_link" href="/search?o=t2&amp;q=%E3%83%98%E3%83%83%E3%83%89%E3%83%9B%E3%83%B3+MDR-CD900ST">
+                <li>
+                  Aucfree で検索
+                </li>
+              </a><a class="shopping_link yahuoku_link" href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3601076&amp;pid=887657061&amp;vc_url=https%3A%2F%2Fauctions.yahoo.co.jp%2Fsearch%2Fsearch%3Fp%3D%E3%83%98%E3%83%83%E3%83%89%E3%83%9B%E3%83%B3+MDR-CD900ST" target="_blank" rel="nofollow" onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;:&#39;aff&#39;,&#39;event_label&#39;:&#39;pc_yahoo_auction&#39;});">
+                <li>
+                  Yahoo!オークション で検索<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3601076&amp;pid=887657061" height="1" width="0" border="0" style="display:none;" />
+                </li>
+              </a><a class="shopping_link yshopping_link" href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3601076&amp;pid=887191999&amp;vc_url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3D%E3%83%98%E3%83%83%E3%83%89%E3%83%9B%E3%83%B3+MDR-CD900ST" target="_blank" rel="nofollow" onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;:&#39;aff&#39;,&#39;event_label&#39;:&#39;pc_yahoo_shop&#39;});">
+                <li>
+                  Yahoo!ショッピング で検索<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3601076&amp;pid=887191999" height="1" width="0" border="0" style="display:none;" />
+                </li>
+              </a><a class="shopping_link rakuten_link" href="https://hb.afl.rakuten.co.jp/hgc/1892a393.e022e713.1892a394.9aae811b/_RTLink24094?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E3%83%98%E3%83%83%E3%83%89%E3%83%9B%E3%83%B3+MDR-CD900ST%2F%3Fsf%3D1" target="_blank" rel="nofollow sponsored noopener" onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;:&#39;aff&#39;,&#39;event_label&#39;:&#39;pc_rakuten&#39;});">
+                <li>
+                  楽天市場 で検索
+                </li>
+              </a>
+            </ul>
+          </div>
+          <div id="item_image">
+            <h2 class="item_lead">
+              <span>■</span>商品画像
+            </h2>
+            <ul id="item_imgs">
+              <li class="itemimage"><img alt="高崎店【現状品】u3-25 SONY ソニー MDR-CD900ST 密閉型 スタジオモニター ヘッドホン ブラック 箱無しの1番目の画像" class="item_img" src="https://img.aucfree.com/u1176482381.1.jpg" />
+              </li>
+              <li class="itemimage"><img class="item_img loading" data-src-original="https://img.aucfree.com/u1176482381.2.jpg" alt="高崎店【現状品】u3-25 SONY ソニー MDR-CD900ST 密閉型 スタジオモニター ヘッドホン ブラック 箱無しの2番目の画像" src="https://img.aucfree.com/loading.svg" />
+              </li>
+              <li class="itemimage"><img class="item_img loading" data-src-original="https://img.aucfree.com/u1176482381.3.jpg" alt="高崎店【現状品】u3-25 SONY ソニー MDR-CD900ST 密閉型 スタジオモニター ヘッドホン ブラック 箱無しの3番目の画像" src="https://img.aucfree.com/loading.svg" />
+              </li>
+            </ul>
+          </div>
+          <div id="item_desc" style="content-visibility:auto; contain-intrinsic-height:1000px;">
+            <h2 class="item_lead">
+              <span>■</span>商品説明
+            </h2>
+            <p>
+              <center>
+              ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿<br>
+              <br>
+              【店舗情報】<br>
+              <br>
+              錬金堂高崎店<br>
+              営業日：月・火・木・金・土・日曜日(水曜定休、不定休有)<br>
+              営業時間：10:00～16:00<br>
+              住所：群馬県高崎市上並榎町112<br>
+              TEL：027-329-6655<br>
+              <br>
+              ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿<br>
+              <br>
+              
+              <table border="0" cellpadding="5" cellspacing="0" width="800">
+              <tr>     
+              <td align="center" bgcolor="#7f7f7f" width="800"><font size="4" color="#ffffff">【現状品】u3-25 SONY ソニー MDR-CD900ST 密閉型 スタジオモニター ヘッドホン ブラック 箱無し</font></td>
+              </tr>
+              </table>
+              
+              <br>
+              
+              <table border="0" cellpadding="0" cellspacing="0" width="800"><tr><td>
+              <b></b><center>当店の商品は基本的に<font color="RED">「リサイクル品」</font>になります。<br>
+              お品物、お取引内容を十分にご確認頂いた上でご入札をお願い致します。</center>
+              <br>
+              <br><font color="#cc0000">★</font>商品説明 <br><hr>
+              </td></tr></table>
+              
+              
+              <table border="0" cellpadding="0" cellspacing="0" width="800">
+              <tr><td><font size="2">
+              ・商品説明<br>
+              ・動作の確認が出来ない為、現状品となります。<br>
+              ・商品の状態や付属品に関しては画像をご確認ください。<br>
+              ・まとめて落札された場合はヤフオクのシステムの都合上、正規の配送料金と異なった金額が請求されてしまいます。<br>
+              ・落札後にご連絡させていただきますが、正規の送料に変更して請求させていただきますのでご了承ください。<br>
+              ・当店専門店では無い為、専門的な範疇のチェックができず、見落としがある可能性があります。<br>
+              ・当店では領収書の発行は行っておりません。<br>
+              <font color="RED">取引ナビ利用明細画面が領収書と同様に扱えますのでご自身で印刷してご使用ください。<br>
+              ・ご不明点等ございましたらお気軽にご質問下さいませ。<br></font>
+              　※専門店ではございませんので、素人目線でわかる範疇でのご返答となりますのでご了承下さい。<br>
+              　※営業時間外のご質問に関しましてはご返答が翌営業日以降となります。オークション終了時刻をご確認の上ご質問下さい。<br>
+              <br>
+              ・商品に関しまして、中古の商品は簡易清掃は行なっておりますが、ホコリ汚れ等取り切れていない箇所もございます。清掃面での評価はご遠慮下さいませ。<br>
+              <br>
+              <br>
+              <table border="0" cellpadding="0" cellspacing="0" width="800"><tr><td>
+              <b><font size="4" color="#cc0000">★<font size="3" color="#000000">お取引について</font></font></b><br><hr>
+              </td></tr></table>
+              
+              <br>
+              ・取引ナビご記入時、配送方法で<font color="RED">ヤマト運輸元払い</font>をお選びください。<br>
+              <br>
+              <br>
+              ●ヤマト運輸元払いをお選びいただいた場合●<br>
+              <br>
+              ・送料は落札商品代金と同時にお支払いください。<br>
+              <br>
+              ・送料の金額に関するご質問を多く受けております。商品ページ下部の<font color="RED">配送予定サイズ</font>と<a href="https://www.kuronekoyamato.co.jp/ytc/search/payment/simulation.html?service=TK#ft01" target="new">ヤマト運輸公式サイト</a>にてご確認をお願い致します。(青い文字をクリックするとHPへ飛べます)<br>
+              　※「〇〇県までの送料はいくらか」というご質問にはお答えしかねます。ご了承下さい。<br>
+              <br>
+              ・送料は発送時に確定致します。<br>
+              <br>
+              ・事務手続き等ございますので<font color="RED">お引き取り前までにご入金</font>をお願い致します。<br>
+              <br>
+              <br>
+              ・営業時間外のお問い合わせに関しましては翌営業日以降のお返事になりますことご了承下さいませ。<br>
+              <br>
+              ・基本的に<font color="RED">ご入札の取り消しは承れません</font>ので商品ページを良くご確認の上ご入札下さいませ。<br>
+              ・店頭での直接引き取りには対応しておりません。ご了承ください。<br>
+              <br>
+              <br>
+              <table border="0" cellpadding="0" cellspacing="0" width="800"><tr><td>
+              <b><font color="#cc0000">★</font>付属品について</b><br><hr>
+              </td></tr></table>
+              
+              <table border="0" cellpadding="0" cellspacing="0" width="800">
+              <tr><td><font size="2">
+              ・画像に写っているものが全てです。<br>
+              ※記載・掲載のないものにつきましては、欠品しているものとお考え下さい。
+              </font></td></tr>
+              </table>
+              
+              <br>
+              
+              <table border="0" cellpadding="0" cellspacing="0" width="800"><tr><td>
+              <b><font color="#cc0000">★</font>状態ランク・商品状態</b><br><hr>
+              </td></tr></table>
+              
+              <table border="0" cellpadding="0" cellspacing="0" width="800">
+              <tr>
+              <td>
+              <b><font size="6" color="BLUE">【Eランク】</font></b><br>
+              <font size="2"><b>※商品の状態に関しましては、当方の見立てとなりますので、神経質な方、完全美品を求めている方は、入札をご遠慮下さい。<br> 
+              ※当店の査定基準をご参考にして下さい。</b></font>
+              </td>
+              </tr>
+              </table>
+              
+              <br>
+              
+              <table bgcolor="#000000" border="0" cellpadding="5" cellspacing="1" width="800">
+              
+              <tr>
+              <td align="center" bgcolor="BLUE" valign="middle" width="50"><font size="4" color="#ffffff"><b>N</b></font></td>
+              <td align="left" bgcolor="#ffffff" valign="middle"><font size="3"><small>新品・未使用で付属品がすべて揃っている状態</small></font></td>
+              </tr>
+              
+              <tr>
+              <td align="center" bgcolor="DEEPSKYBLUE" valign="middle" width="50"><font size="4" color="#ffffff"><b>S</b></font></td>
+              <td align="left" bgcolor="#ffffff" valign="middle"><font size="3"><small>開封済・未使用、展示品等、新品同様の状態</small></font></td>
+              </tr>
+              
+              <tr>
+              <td align="center" bgcolor="SEAGREEN" valign="middle" width="50"><font size="4" color="#ffffff"><b>A</b></font></td>
+              <td align="left" bgcolor="#ffffff" valign="middle"><font size="3"><small>わずかな浅いキズ、汚れはあるが大変綺麗な状態</small></font></td>
+              </tr>
+              
+              <tr>
+              <td align="center" bgcolor="LAWNGREEN" valign="middle" width="50"><font size="4" color="#ffffff"><b>B</b></font></td>
+              <td align="left" bgcolor="#ffffff" valign="middle"><font size="3"><small>多少の汚れ、キズがあり少し使用感の感じられる状態</small></font></td>
+              </tr>
+              
+              <tr>
+              <td align="center" bgcolor="GOLD" valign="middle" width="50"><font size="4" color="#ffffff"><b>C</b></font></td>
+              <td align="left" bgcolor="#ffffff" valign="middle"><font size="3"><small>目立った汚れ、キズのある状態</small></font></td>
+              </tr>
+              
+              <tr>
+              <td align="center" bgcolor="ORANGE" valign="middle" width="50"><font size="4" color="#ffffff"><b>D</b></font></td>
+              <td align="left" bgcolor="#ffffff" valign="middle"><font size="3"><small>かなりの使用感、汚れ、キズのある状態</small></font></td>
+              </tr>
+              
+              <tr>
+              <td align="center" bgcolor="HOTPINK" valign="middle" width="50"><font size="4" color="#ffffff"><b>E</b></font></td>
+              <td align="left" bgcolor="#ffffff" valign="middle"><font size="3"><small>現状渡し品、動作確認等を行っていない状態</small></font></td>
+              </tr>
+              
+              </table>
+              
+              <br>
+              
+              <table border="0" cellpadding="5" cellspacing="0" width="800">
+              <tr>     
+              <td align="center" bgcolor="#7f7f7f" width="800"><font size="4" color="#ffffff">発送・配送について</font></td>
+              </tr>
+              </table>
+              
+              <br>
+              
+              <table border="0" cellpadding="0" cellspacing="0" width="800">
+              <tr><td>
+              <font size="4"><b>・ご落札後、<font color="RED">配送</font>をお選びください。<br>
+              <br>
+              ・配送は<font color="RED">ヤマト運輸送料元払い</font>での配送となります。<font color="RED">配送業者はご指定頂けません。</font><br>
+              　<font color="RED">60サイズ</font>での発送を予定いたしております。<br>
+              <br>
+              <br>
+              <br>
+              ※送料は地域により異なりますので、<a href="https://www.kuronekoyamato.co.jp/ytc/search/payment/simulation.html?service=TK#ft01" target="new">ヤマト運輸公式サイト</a>よりご確認をお願い致します。(青い文字をクリックするとHPへ飛べます)<br>
+              ※こちらの商品は<font color="RED">【送料元払い】</font>でのお届けとなります。<br></b></font>
+              <br>
+              <font size="2">※配送は入金が確認出来次第、3営業日以内に出荷させて頂きます。<br>
+              ※商品によっては梱包によりサイズに誤差が生じる事がございます。梱包前の目安になります。前後する可能性がございますが予めご了承下さいませ。<br>
+              ※高崎店では基本的に同梱での発送は対応しておりません。落札後の同梱希望のご連絡はご遠慮下さい。<br>
+              　・送料の返金に関しましては決済方法にて異なります。<br>
+              　・直接引き取りご希望のお客さまはシステム上一度送料込みの決済をお願いしております。<br>
+              　・その後お問い合わせにてご連絡をお願いいたします。<br>
+              　・コンビニ払い、銀行振込でお支払いされてる場合はご来店時に送料の返金<br>
+              　・クレジットカード、Paypay払いの方はヤフオクのシステム上で送料の返金処理をさせていただきます。<br>
+              ※<font color="RED">他店舗で落札されたお品物の高崎店での同梱発送は出来兼ねます。</font>ご了承下さい。<br>
+              </font>
+              </td></tr>
+              </table>
+              
+              <br><br>
+              
+              <table border="0" cellpadding="5" cellspacing="0" width="800">
+              <tr>     
+              <td align="center" bgcolor="#7f7f7f" width="800"><font size="4" color="#ffffff">注意事項</font></td>
+              </tr>
+              </table>
+              
+              <br>
+              
+              <table border="0" cellpadding="0" cellspacing="0" width="800"><tr><td>
+              <b><font color="#cc0000">★</font>お支払いについて</b><br><hr>
+              </td></tr></table>
+              
+              <table border="0" cellpadding="0" cellspacing="0" width="800">
+              <tr><td><font size="2">
+              ■お支払い方法<br>
+              <br>
+              ■取引ナビのお支払い方法からお選びください<br>
+              <br>
+              【配送料金】<br>
+              当店指定配送業者の定めた料金となります。<br>
+              お客様側からの配送業者、配送方法の指定は承れません。<br>
+              ご入金の確認ができましたら、 <font color="RED">3営業日以内に商品を発送いたします。</font><br>
+              ※諸事情にて発送が遅れる場合は必ずご連絡を致します。<br>
+              <br>
+              <font color="BLUE">落札から48時間以内にご連絡頂けない、4日以内にご入金が確認できない場合、</font><font color="RED">落札者様都合でのキャンセルとさせて頂きます</font>ので予めご了承お願い致します。<br>
+              <br>
+              【消費税について】<br>
+              <br>
+              当店は競売方式のオークションストアとなりますので落札金額に<font color="RED">消費税</font>が掛かります。あらかじめご了承下さい。<br>
+              <br>
+              【注意事項】<br>
+              <br>
+              お支払い金額は<font color="RED">《落札金額＋送料+消費税》</font>をお支払下さい。（各手数料はお客様負担となりますのでご注意下さい。）<br>
+              <br>
+              ・<font color="BLUE">消費税の計算忘れによる振込金額の相違が多発しております。</font>お手数ですがその際にはお客様に再度お振込いただければならないので、お手数ではございますが、ご確認・ご注意を宜しくお願い致します。<br>
+              ・<font color="BLUE">落札者様と振込名義名が違う場合、ご入金確認ができません。</font>違う場合にはあらかじめ<font color="RED">「取引ナビ」</font>の備考欄にてお知らせください。<br>
+              ・定休日の対応は致しかねます。ご入金確認・ご連絡等は翌営業日からとなります。
+              </font></td></tr>
+              </table>
+              
+              <br>
+              
+              <table border="0" cellpadding="0" cellspacing="0" width="800"><tr><td>
+              <b><font color="#cc0000">★</font>取引ナビ・お取引の流れ</b><br><hr>
+              </td></tr></table>
+              
+              <table border="0" cellpadding="0" cellspacing="0" width="800">
+              <tr><td><font size="2">
+              当店は「オークションストア」になっており、落札いただいた商品ページの<font color="RED">「取引ナビ」</font>より、お客様情報、お支払い方法等を落札から48時間以内にご入力下さい。<br>
+              落札商品すべて取引ナビのご入力をお願いします。ご協力宜しくお願い致します。<br>
+              <br>
+              【お取引方法】<br>
+              <br>
+              1. 落札後、ヤフーより落札通知メールが届きます。ご確認の上、落札いただいた商品ページまたはマイオークションの「落札分」より落札した商品をお選び下さい。<br>
+              <br>
+              2. 落札ページから<font color="RED">「取引ナビ」</font>をお選び下さい。<br>
+              <br>
+              3. <font color="RED">「取引ナビ」</font>に お客様情報、お支払い方法を入力し送信してください。配送日のご相談などは備考欄にご入力下さい。<br>
+              ※<font color="BLUE">取引ナビご入力の際は、必ず</font><font color="RED">「配送方法」</font><font color="BLUE">をお選び下さい。</font>未選択の場合、エラーにより先に進むことができない状態となります。<br>
+              <br>
+              4. <font color="RED">「入力情報確認メール」</font>が届きます。落札商品、合計金額、お支払い方法、お客様情報等をご確認下さい。<br>
+              <br>
+              5. 内容に間違いがなければ、お支払い合計金額をご入金下さい。<br>
+              ※ 落札から48時間以内にご連絡が取れない、4日以内にご入金が確認できない場合、落札者様都合でのキャンセルとさせて頂きますので予めご了承お願い致します。<br>
+              <br>
+              6. ご入金確認後、3営業日以内に商品を発送いたします。<br>
+              <br>
+              ・「ご注文確認メール」が届かない場合<br>
+              <font color="RED">「迷惑メール判別機能」</font>により<font color="RED">「迷惑メールフォルダ」または「ゴミ箱」</font>にある場合がございます。<br>
+              取引ナビにご入力後、2日以内にご連絡が確認できない場合には、お手数ではございますが上記フォルダに届いていないかをご確認下さい。<br>
+              <br>
+              また、携帯電話の場合には<font color="RED">「yuasazidousya4@yahoo.co.jp」</font>の<font color="RED">ドメイン指定解除</font>をお願いたします。<br>
+              <br>
+              7.誠に勝手ではございますが、落札者様からのご連絡は取引ナビの取引連絡からでお願い致します。<br>
+              <br>
+              ・こちらからのメールは送信専門となっておりますのでご返信いただいても返答は出来ませんのでご注意下さい。<br>
+              <br>
+              ・<font color="BLUE">当社では、ヤフーオークションの代金の受け取りに関して、</font><font color="RED">領収書の発行を行っておりません。</font>お支払い方法により以下の物が領収書としてご利用いただけますので、それぞれご確認下さい。<br>
+              <br>
+              【インターネットバンキング】お客様側でプリンターにて印刷していただいた明細書<br>
+              【クレジットカード決済】クレジット会社から発行される明細書<br>
+              </font></td></tr>
+              </table>
+              
+              <br>
+              
+              <table border="0" cellpadding="0" cellspacing="0" width="800"><tr><td>
+              <b><font color="#cc0000">★</font>注意事項</b><br><hr>
+              </td></tr></table>
+              
+              <table border="0" cellpadding="0" cellspacing="0" width="800">
+              <tr><td><font size="2">
+              【注意事項】<br>
+              <br>
+              ・商品の同梱は行なっておりません。落札後の同梱ご希望のご連絡にも対応致しかねますので、あらかじめご了承下さいませ。<br>
+              ・当店の商品は基本的に<font color="RED">「リサイクル品」</font>になります。お品物、お取引内容を十分にご確認頂いた上でご入札をお願い致します。<br>
+              ・落札から48時間以内にご連絡が取れない場合、4日以内にご入金が確認出来ない場合は、落札者様都合でのキャンセルとさせて頂きますので、予めご了承お願い致します。　<br>
+              <br>
+              ※お客様都合によるキャンセルの場合、「非常に悪い」の評価が付いてしまいますので予めご了承下さい。<br>
+              <br>
+              【キャンセル・返品】<br>
+              <br>
+              ・当店の商品は基本的に「リサイクル品」になります。　返品キャンセルは受け付けておりませんので、<font color="RED">ノークレーム・ノーリターン</font>でお願い致します。<br>
+              ・万が一商品が届かない等の不備がございましたら、下記のお問い合わせ先にご連絡下さい。<br>
+              ・配送上に発生したトラブルに関しましては、各配送会社にお問合せ下さい。<br>
+              ・営業所止め・宅配BOX利用に伴う配送上の事故・トラブルにつきまして弊社は一切の責任負いかねますので予めご了承下さい。<br>
+              <br>
+              錬金堂高崎店<br>
+              営業日：月・火・木・金・土・日曜日(水曜定休、不定休有)<br>
+              営業時間：10:00～16:00<br>
+              住所：群馬県高崎市上並榎町112<br>
+              TEL：027-329-6655
+              </font></td></tr>
+              </table>
+              
+              </font></td></tr>
+              </table>
+              </center>
+            </p>
+            <span class="anc_pagetop"><a href="#top">▲ ページトップへ</a></span>
+          </div>
+          <div id="md_similar_box" style="content-visibility:auto; contain-intrinsic-height:328px;">
+            <h3>
+              関連商品
+            </h3>
+            <p>
+              現在見ている落札物に関連した商品を表示しています
+            </p>
+            <div id="rs_rakuten_item">
+              <h4>
+                <span>■</span>楽天市場の関連商品
+              </h4>
+              <div class="rakuten_related_box">
+                <div class="rakuten_recommend_box" style="margin: 0px auto;">
+                  <script>
+                    rakuten_design="slide";rakuten_affiliateId="1892a393.e022e713.1892a394.9aae811b";rakuten_items="ranking";rakuten_genreId="562637";rakuten_size="728x200";rakuten_target="_blank";rakuten_theme="gray";rakuten_border="off";rakuten_auto_mode="on";rakuten_genre_title="off";rakuten_recommend="off";
+                  </script>
+                  <script type="text/javascript" src="https://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js"></script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="related_area">
+          <p class="related_items__lead">
+            似ているオークションの情報
+          </p>
+          <ul class="related_items">
+            <li class="related_item">
+              <div class="center">
+                <a onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;:&#39;link&#39;,&#39;event_label&#39;:&#39;related_item&#39;});" href="/items/n1175567892"><img class="related_item__img lozad" data-src="https://img.aucfree.com/n1175567892.1.jpg" alt="&amp;【売り切り】SONY モニターヘッドホン MDR-CD900ST スタジオ レコーディング DTM DAW 宅録 ダイナミックステレオヘッドホン ソニーの1番目の画像" src="" /></a>
+              </div>
+              <span class="itemPrice"><span>8,501</span>円</span>
+              <p class="itemName">
+                <a onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;:&#39;link&#39;,&#39;event_label&#39;:&#39;related_item&#39;});" href="/items/n1175567892">&amp;【売り切り】SONY モニターヘッドホン MDR-CD900ST スタジオ レコーディング ...</a>
+              </p>
+            </li>
+            <li class="related_item">
+              <div class="center">
+                <a onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;:&#39;link&#39;,&#39;event_label&#39;:&#39;related_item&#39;});" href="/items/x1174156839"><img class="related_item__img lozad" data-src="https://img.aucfree.com/x1174156839.1.jpg" alt="f146*80【現状品】f146-2502-817 SONY　MDR-CD900ST ソニー　ヘッドホンの1番目の画像" src="" /></a>
+              </div>
+              <span class="itemPrice"><span>7,140</span>円</span>
+              <p class="itemName">
+                <a onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;:&#39;link&#39;,&#39;event_label&#39;:&#39;related_item&#39;});" href="/items/x1174156839">f146*80【現状品】f146-2502-817 SONY　MDR-CD900ST ソニー　...</a>
+              </p>
+            </li>
+            <li class="related_item">
+              <div class="center">
+                <a onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;:&#39;link&#39;,&#39;event_label&#39;:&#39;related_item&#39;});" href="/items/v1166235176"><img class="related_item__img lozad" data-src="https://img.aucfree.com/v1166235176.1.jpg" alt="⑧　ソニー SONY　スタジオモニターヘッドホン MDR-CD900ST 動作未確認　箱痛み品の1番目の画像" src="" /></a>
+              </div>
+              <span class="itemPrice"><span>6,500</span>円</span>
+              <p class="itemName">
+                <a onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;:&#39;link&#39;,&#39;event_label&#39;:&#39;related_item&#39;});" href="/items/v1166235176">⑧　ソニー SONY　スタジオモニターヘッドホン MDR-CD900ST 動作未確認　箱痛み品</a>
+              </p>
+            </li>
+            <li class="related_item">
+              <div class="center">
+                <a onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;:&#39;link&#39;,&#39;event_label&#39;:&#39;related_item&#39;});" href="/items/t1170254762"><img class="related_item__img lozad" data-src="https://img.aucfree.com/t1170254762.1.jpg" alt="(Z-4419)SONY ポータブルカセットプレーヤー TPS-L2 ヘッドホン MDR-CD900ST 動作未確認 現状渡しの1番目の画像" src="" /></a>
+              </div>
+              <span class="itemPrice"><span>24,100</span>円</span>
+              <p class="itemName">
+                <a onClick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;:&#39;link&#39;,&#39;event_label&#39;:&#39;related_item&#39;});" href="/items/t1170254762">(Z-4419)SONY ポータブルカセットプレーヤー TPS-L2 ヘッドホン MDR-CD...</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="searchBoxFt" style="clear:both;">
+      <div id="formBlockFt" class="alias1">
+        <form id="searchFormFt" method="get" name="search" action="/search"><input type="hidden" name="o" value="t2" />
+          <div id="selectableFt">
+            <div id="search_box_form_ft">
+              <select id="c_id_ft" class="selectable2" name="c"><option value="">すべてのカテゴリ</option>
+                <option value="23336">コンピュータ</option>
+                <option value="23632">家電・AV・カメラ</option>
+                <option value="21600">本・雑誌</option>
+                <option value="22152">音楽</option>
+                <option value="21964">映画・ビデオ</option>
+                <option value="25464">おもちゃ・ゲーム</option>
+                <option value="24242">ホビー・カルチャー</option>
+                <option value="20000">アンティーク</option>
+                <option value="20060">コミック・アニメグッズ</option>
+                <option value="2084032594">タレントグッズ</option>
+                <option value="23000">ファッション</option>
+                <option value="23140">アクセサリー・時計</option>
+                <option value="24202">キッズ・ベビー</option>
+                <option value="42177">ビューティ・健康 </option>
+                <option value="23976">食品・飲料</option>
+                <option value="26318">自動車・バイク</option>
+                <option value="24698">スポーツ・レジャー</option>
+                <option value="22896">事務・店舗用品</option>
+                <option value="2084060731">不動産</option>
+                <option value="24198">住まい・インテリア</option>
+                <option value="26086">花・園芸</option>
+                <option value="2084055844">ペット・いきもの</option>
+                <option value="2084043920">チケット・金券</option>
+                <option value="2084217893">チャリティ</option>
+                <option value="26084">その他</option></select><span class="selectAlt selectable2Val">すべてのカテゴリ</span>
+              <ul id="ulSelectList2Ft" class="selectList" style="display:none;">
+                <li>
+                  <a class="selected" data-value="nodata" href="#">すべてのカテゴリ</a>
+                </li>
+                <li>
+                  <a data-value="23336" href="#">コンピュータ</a>
+                </li>
+                <li>
+                  <a data-value="23632" href="#">家電・AV・カメラ</a>
+                </li>
+                <li>
+                  <a data-value="21600" href="#">本・雑誌</a>
+                </li>
+                <li>
+                  <a data-value="22152" href="#">音楽</a>
+                </li>
+                <li>
+                  <a data-value="21964" href="#">映画・ビデオ</a>
+                </li>
+                <li>
+                  <a data-value="25464" href="#">おもちゃ・ゲーム</a>
+                </li>
+                <li>
+                  <a data-value="24242" href="#">ホビー・カルチャー</a>
+                </li>
+                <li>
+                  <a data-value="20000" href="#">アンティーク</a>
+                </li>
+                <li>
+                  <a data-value="20060" href="#">コミック・アニメグッズ</a>
+                </li>
+                <li>
+                  <a data-value="2084032594" href="#">タレントグッズ</a>
+                </li>
+                <li>
+                  <a data-value="23000" href="#">ファッション</a>
+                </li>
+                <li>
+                  <a data-value="23140" href="#">アクセサリー・時計</a>
+                </li>
+                <li>
+                  <a data-value="24202" href="#">キッズ・ベビー</a>
+                </li>
+                <li>
+                  <a data-value="42177" href="#">ビューティ・健康</a>
+                </li>
+                <li>
+                  <a data-value="23976" href="#">食品・飲料</a>
+                </li>
+                <li>
+                  <a data-value="26318" href="#">自動車・バイク</a>
+                </li>
+                <li>
+                  <a data-value="24698" href="#">スポーツ・レジャー</a>
+                </li>
+                <li>
+                  <a data-value="22896" href="#">事務・店舗用品</a>
+                </li>
+                <li>
+                  <a data-value="2084060731" href="#">不動産</a>
+                </li>
+                <li>
+                  <a data-value="24198" href="#">住まい・インテリア</a>
+                </li>
+                <li>
+                  <a data-value="26086" href="#">花・園芸</a>
+                </li>
+                <li>
+                  <a data-value="2084055844" href="#">ペット・いきもの</a>
+                </li>
+                <li>
+                  <a data-value="2084043920" href="#">チケット・金券</a>
+                </li>
+                <li>
+                  <a data-value="2084217893" href="#">チャリティ</a>
+                </li>
+                <li>
+                  <a data-value="26084" href="#">その他</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div id="searchFrameFt">
+            <input type="search" name="q" id="searchInput2Ft" placeholder="キーワードを入力してください" maxlength="30" class="searchInput" /><button id="searchButtonFt" class="searchButton" type="submit"><span>検索</span></button>
+          </div>
+        </form>
+      </div>
+    </div><div id="copyright">
+      <div class="copy">
+        <ul>
+          <li>
+            <a href="mailto:contact@aucfree.com">お問い合わせ</a>
+          </li>
+          <li>
+            <a href="/ad" rel="nofollow">広告掲載について</a>
+          </li>
+          <li>
+            <a href="/rule" rel="nofollow">利用規約</a>
+          </li>
+          <li>
+            <a href="/company" rel="nofollow">運営会社</a>
+          </li>
+          <li>
+            <a href="/faq" rel="nofollow">FAQ</a>
+          </li>
+          <li class="last">
+            <a href="/about" rel="nofollow">オークフリーとは</a>
+          </li>
+        </ul>
+        <p align="center">
+          Copyright &copy; 2020 Re Inc. All Rights Reserved.
+        </p>
+        <!--Begin Yahoo! JAPAN Web Services Attribution Snippet--><a href="https://developer.yahoo.co.jp/about"><img src="https://s.yimg.jp/images/yjdn/yjdn_attbtn2_105_17.gif" width="105" height="17" title="Webサービス by Yahoo! JAPAN" alt="Webサービス by Yahoo! JAPAN" border="0" style="margin:15px 15px 15px 15px" /></a><!--End Yahoo! JAPAN Web Services Attribution Snippet-->
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha512-21jyjW5+RJGAZ563i/Ug7e0AUkY7QiZ53LA4DWE5eNu5hvjW6KUf9LqquJ/ziLKWhecyvvojG7StycLj7bT39Q==" crossorigin="anonymous"></script>
+    <script>
+      const observer = lozad('.lozad', {
+        loaded: function(el) {
+          el.addEventListener('error', function(e) {
+            el.src="/assets/thumb_noimage-71cf51002457506ea714a05f51256954.png";
+            el.alt='No Image';
+          });  
+        }
+      });
+      observer.observe();
+      
+      const analysis1Observer = lozad('#chart-1', {
+        loaded: function(el) {
+          var scr = document.createElement('script');
+          scr.innerHTML = "google.charts.load('current', {packages: ['corechart']}); google.charts.setOnLoadCallback(drawChart1);";
+          el.appendChild(scr); 
+        }
+      });
+      analysis1Observer.observe();
+      
+      const analysis2Observer = lozad('#chart-2', {
+        loaded: function(el) {
+          var scr = document.createElement('script');
+          scr.innerHTML = "google.charts.load('current', {packages: ['corechart']}); google.charts.setOnLoadCallback(drawChart2);";
+          el.appendChild(scr); 
+        }
+      });
+      analysis2Observer.observe();
+    </script>
+    <script src="/assets/pc-f371075331bc862e0d9e5c6dcf98e415.js"></script>
+  </body>
+</html>

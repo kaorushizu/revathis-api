@@ -94,16 +94,11 @@ function extractItemInfo($, auctionId) {
   
   // 商品説明
   let description = '';
-  // centerタグがある場合
-  if ($('#item_desc > center').length > 0) {
-    description = $('#item_desc > center').html() || '';
-  }
-  // centerタグがなく、直接pタグに説明がある場合
-  else if ($('#item_desc > p').length > 0) {
-    description = $('#item_desc > p').html() || '';
-  }
-  // その他の場合、説明部分全体を取得
-  else {
+  // #item_desc内の最初のtable要素を取得
+  const firstTable = $('#item_desc table').first();
+  if (firstTable.length > 0) {
+    description = $.html(firstTable);
+  } else {
     description = $('#item_desc').html() || '';
   }
   description = description.trim();

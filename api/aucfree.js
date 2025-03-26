@@ -1,186 +1,157 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 
+// 定数
+const ITEMS_PER_PAGE = 50;
+const BASE_URL = "https://aucfree.com/search";
+const IMAGE_PROXY_URL = "https://image-proxy.shizu-8bd.workers.dev/?url=";
+
+/**
+ * オークフリーのAPI
+ */
 module.exports = async (req, res) => {
-// test
-
     try {
-        const keyword = req.query.keyword;
-        // if (!keyword) {
-        //     return res.status(400).json({ error: "キーワードを指定してください" });
-        // }
-        const page = Number(req.query.page ?? 1);
-        const negative_keyword = req.query.negative_keyword ?? "";
-        const status = req.query.status ?? "";
-        const seller = req.query.seller ?? "";
-        const min = req.query.min ?? "";
-        const max = req.query.max ?? "";
+        // パラメータ取得
+        const {
+            keyword,
+            page = 1,
+            negative_keyword = "",
+            status = "",
+            seller = "",
+            min = "",
+            max = ""
+        } = req.query;
 
-        const url = `https://aucfree.com/search?from=2015-06&o=t2&q=${encodeURIComponent(keyword)}&to=2030-01&p=${page}&nq=${encodeURIComponent(negative_keyword)}&itemstatus=${status}&seller=${seller}&l=${min}&u=${max}`;
-        console.log( url )
-
-        // HTML を取得
-        const response = await axios.get(url, {
-            headers: {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-            }
-        });
-
-        console.log("Fetched HTML:", response.data); // 500文字だけ出力（デバッグ用）
-
-        const $ = cheerio.load(response.data);
+        // ページ番号を数値に変換
+        const currentPage = Number(page);
         
-        //合計数取得
-        const pageTotal = Number($(".page_nav:nth-of-type(1) p span:nth-of-type(3)").text().replaceAll(",",""));        
-
-        let items = [];
-
-        const $items = $(".results_bid.hover_on");
-
-
-
-        // テキストから最初の数字とドットを削除する関数
-        function removeLeadingNumberAndDot(text) {
-            return text.replace(/^\d+\.\s*/, '');
-        }
-
-        function convertDateToNumber(dateText) {
-            return dateText.replace(/(\d+)年(\d+)月(\d+)日/, (_, year, month, day) => {
-                return year + String(month).padStart(2, '0') + String(day).padStart(2, '0');
-            });
-        }
-
-
-        $items.each(function () {
-            // オークションIDをTRにセットしておく（後から何かと使える為）
-            const href = $(this).find(".results_bid-image a").attr("href");
-            const aid = href.replace("/items/", "");
-            $(this).attr("id", aid);
-            $(this).addClass("add_item");
-
-            // 長い商品名に置換え & リンク削除
-            const longTitle = $(this).find(".results_bid-image img").attr("alt").replace("の1番目の画像", "");
-            $(this).find(".item_title").replaceWith('<p class="addItemName" style="cursor:text;">' + longTitle + '</p>');
-
-
-            // 対象商品の情報を取得
-            const $item = $(this).closest(".add_item");
-
-            const itemObj = {
-                オークションID: $item.attr("id"),
-                商品名: $item.find(".addItemName").text().trim(),
-                落札金額: Number($item.find(".item_price").text().replace("円", "").replace(",", "").trim() ),
-                // カテゴリID: $item.find(".add_catId").text().trim(),
-                画像URL: items.length === 0 
-                    ? $item.find(".results_bid-image a img").attr("src")
-                    : $item.find(".results_bid-image a img").attr("data-src"),
-                入札数: Number( $item.find(".results-bid").text().replace(/\r?\n/g, '').replace("件", "").trim() ),
-                終了日: $item.find(".results-limit").text().replace(/\r?\n/g, '').trim(),
-                // 状態: removeLeadingNumberAndDot($item.find(".add_conditionTag").text().trim()),
-                // 送料: $item.find(".add_shipping").text().trim()
-            };
-            //商品画像はオークファン形式へ切替
-            //https://image-proxy.shizu-8bd.workers.dev/?url=https://aucfree.com/image/12345.jpg            
-            // itemObj.画像URL = `https://auctions.afimg.jp/item_data/thumbnail/${convertDateToNumber(itemObj.終了日)}/yahoo/c/${itemObj.オークションID}.jpg`
-            itemObj.画像URL = `https://image-proxy.shizu-8bd.workers.dev/?url=${itemObj.画像URL}`
-            // itemObj.画像URL = `https://image-proxy.shizu-8bd.workers.dev/?url=https://img.aucfree.com/${itemObj.オークションID}.1.jpg`
-            items.push(itemObj);
-
+        // 検索URLの構築
+        const url = buildSearchUrl({
+            keyword,
+            currentPage,
+            negative_keyword,
+            status,
+            seller,
+            min,
+            max
         });
-
-
-        const output = {
-            "page":page,
-            "page_total":pageTotal,
-            "items":items
-        }
-        console.log("Parsed Results:", output); // パース結果をログ出力（デバッグ用）
-
-
-        res.json(output);
+        
+        // HTMLを取得
+        const html = await fetchHtml(url);
+        
+        // HTMLをパース
+        const result = parseHtml(html);
+        
+        // レスポンスを返す
+        res.json(result);
     } catch (error) {
         console.error("Error:", error);
-        res.status(500).json({ error: "データの取得に失敗しました" });
+        res.status(500).json({ 
+            error: "データの取得に失敗しました", 
+            message: error.message 
+        });
     }
 };
 
-// // API パラメーター仕様書
+/**
+ * 検索URLを構築する
+ */
+function buildSearchUrl({ keyword, currentPage, negative_keyword, status, seller, min, max }) {
+    return `${BASE_URL}?from=2015-06&o=t2&q=${encodeURIComponent(keyword || "")}&to=2030-01&p=${currentPage}&nq=${encodeURIComponent(negative_keyword)}&itemstatus=${status}&seller=${seller}&l=${min}&u=${max}`;
+}
 
-// ## エンドポイント
-// `GET /api/aucfree`
+/**
+ * HTMLを取得する
+ */
+async function fetchHtml(url) {
+    console.log("Requesting URL:", url);
+    
+    const response = await axios.get(url, {
+        headers: {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+        }
+    });
+    
+    return response.data;
+}
 
-// ## パラメーター
+/**
+ * HTMLをパースして結果を返す
+ */
+function parseHtml(html) {
+    const $ = cheerio.load(html);
+    
+    // 合計アイテム数取得
+    const itemsTotal = Number($(".page_nav:nth-of-type(1) p span:nth-of-type(3)").text().replaceAll(",", "") || 0);
+    
+    // 合計ページ数計算
+    const pageTotal = Math.ceil(itemsTotal / ITEMS_PER_PAGE);
+    
+    // アイテム一覧を取得
+    const items = parseItems($);
+    
+    return {
+        current_page: Number($(".page_nav:nth-of-type(1) span.current").text() || 1),
+        page_total: pageTotal,
+        items_total: itemsTotal,
+        items: items
+    };
+}
 
-// ### keyword (必須)
-// - 説明: 検索キーワード
-// - 型: `string`
-// - 例: `laptop`
+/**
+ * アイテム一覧をパースする
+ */
+function parseItems($) {
+    const items = [];
+    const $items = $(".results_bid.hover_on");
+    
+    $items.each(function (index) {
+        try {
+            const item = parseItem($, $(this), index);
+            if (item) {
+                items.push(item);
+            }
+        } catch (error) {
+            console.error("Error parsing item:", error);
+        }
+    });
+    
+    return items;
+}
 
-// ### page (任意)
-// - 説明: ページ番号
-// - 型: `number`
-// - デフォルト: `1`
-// - 例: `2`
-
-// ### negative_keyword (任意)
-// - 説明: 除外するキーワード
-// - 型: `string`
-// - デフォルト: `""`
-// - 例: `used`
-
-// ### status (任意)
-// - 説明: 商品の状態
-// - 型: `string`
-// - デフォルト: `""`
-// - 例: `new`
-
-// ### seller (任意)
-// - 説明: 出品者のID
-// - 型: `string`
-// - デフォルト: `""`
-// - 例: `seller123`
-
-// ### min (任意)
-// - 説明: 最低価格
-// - 型: `string`
-// - デフォルト: `""`
-// - 例: `1000`
-
-// ### max (任意)
-// - 説明: 最高価格
-// - 型: `string`
-// - デフォルト: `""`
-// - 例: `5000`
-
-// ## レスポンス
-
-// ### 成功時 (200 OK)
-// - 説明: 検索結果を返します。
-// - 型: `application/json`
-// - 例:
-//   ```json
-//   {
-//       "page": 1,
-//       "page_total": 10,
-//       "items": [
-//           {
-//               "オークションID": "123456789",
-//               "商品名": "Example Product",
-//               "落札金額": 1500,
-//               "画像URL": "https://example.com/image.jpg",
-//               "入札数": 5,
-//               "終了日": "2023-10-01"
-//           }
-//       ]
-//   }
-//   ```
-
-// ### 失敗時 (500 Internal Server Error)
-// - 説明: データの取得に失敗した場合のエラーメッセージを返します。
-// - 型: `application/json`
-// - 例:
-//   ```json
-//   {
-//       "error": "データの取得に失敗しました"
-//   }
-//   ```
+/**
+ * 個別のアイテムをパースする
+ */
+function parseItem($, $element, index) {
+    // オークションIDを取得
+    const href = $element.find(".results_bid-image a").attr("href");
+    if (!href) return null;
+    
+    const auctionId = href.replace("/items/", "");
+    
+    // 商品名を取得
+    const title = $element.find(".results_bid-image img").attr("alt")?.replace("の1番目の画像", "") || "";
+    
+    // 価格を取得
+    const price = Number($element.find(".item_price").text().replace("円", "").replace(/,/g, "").trim() || 0);
+    
+    // 画像URLを取得
+    const imageUrl = index === 0
+        ? $element.find(".results_bid-image a img").attr("src")
+        : $element.find(".results_bid-image a img").attr("data-src");
+    
+    // 入札数を取得
+    const bidCount = Number($element.find(".results-bid").text().replace(/\r?\n/g, '').replace("件", "").trim() || 0);
+    
+    // 終了日を取得
+    const endDate = $element.find(".results-limit").text().replace(/\r?\n/g, '').trim();
+    
+    return {
+        オークションID: auctionId,
+        商品名: title,
+        落札金額: price,
+        画像URL: `${IMAGE_PROXY_URL}${imageUrl}`,
+        入札数: bidCount,
+        終了日: endDate
+    };
+}
